@@ -9,8 +9,7 @@ import {
   Prop,
   IntentType,
   BearerFetch,
-  Intent,
-  BearerComponent
+  Intent
 } from '@bearer/core'
 import { PromisifiedStore, BearerState } from '@bearer/core/dist/state'
 import '@bearer/ui'
@@ -20,7 +19,6 @@ import mapper from './containers/attach-pull-request-display'
 
 import { configStore } from './store'
 
-@BearerComponent
 @Component({
   tag: 'attach-pull-request-display',
   styleUrl: 'AttachPullRequest.css',
