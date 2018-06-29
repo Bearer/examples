@@ -1,12 +1,5 @@
-import {
-  Component,
-  Prop,
-  BearerComponent,
-  Intent,
-  BearerFetch
-} from '@bearer/core'
+import { Component, Prop, Intent, BearerFetch } from '@bearer/core'
 
-@BearerComponent
 @Component({
   tag: 'list-pull-requests',
   styleUrl: 'ListPullRequests.css',

@@ -5,16 +5,13 @@ import { ActionTypes } from '../store'
 function mapDispatchToProps() {
   return {
     attachPullRequest: pullRequest => (dispatch, state) =>
-      new Promise((resolve, _reject) => {
-        ScenarioState.storeData(
-          this.bearerDisplayId,
-          preparePayload(state().attachedPullRequests.concat(pullRequest))
-        ).then(() => {
-          dispatch({
-            type: ActionTypes.PULL_REQUEST_SELECTED,
-            payload: { pullRequest }
-          })
-          resolve(true)
+      ScenarioState.storeData(
+        this.bearerDisplayId,
+        preparePayload(state().attachedPullRequests.concat(pullRequest))
+      ).then(() => {
+        dispatch({
+          type: ActionTypes.PULL_REQUEST_SELECTED,
+          payload: { pullRequest }
         })
       })
   }
