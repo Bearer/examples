@@ -1,0 +1,7 @@
+node_modules/
+dist/
+www/
+.stencil/
+yarn-error.log
+src/*
+!src/.gitkeep

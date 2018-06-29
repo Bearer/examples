@@ -32,7 +32,7 @@ export class AttachPullRequestAction {
 
   render() {
     return (
-      <bearer-popover-navigator button="Attach Pull Request" direction="right">
+      <bearer-popover-navigator button="Attach Pull Request TOTO" direction="right">
         <bearer-navigator-auth-screen />
         <bearer-navigator-screen
           navigationTitle="Repositories"

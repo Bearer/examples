@@ -1,5 +1,3 @@
 .bearer
 node_modules/
-dist/
-www/
 yarn-error.log
