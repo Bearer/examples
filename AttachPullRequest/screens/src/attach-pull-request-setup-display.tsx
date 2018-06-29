@@ -9,10 +9,11 @@ import "@bearer/ui";
   tag: "attach-pull-request-setup-display",
   shadow: true
 })
-export class AttachPullRequestSetupDisplay {
+export class attachPullRequestSetupDisplay {
   render() {
     return (
       <bearer-setup-display setup-id="BEARER_SCENARIO_ID" />
     )
   }
 }
+

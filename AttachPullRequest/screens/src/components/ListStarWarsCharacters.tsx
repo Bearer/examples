@@ -2,24 +2,26 @@ import { Component, BearerComponent, Intent, BearerFetch } from '@bearer/core'
 
 @BearerComponent
 @Component({
-  tag: 'hello-world',
-  styleUrl: 'HelloWorld.css',
+  tag: 'list-star-wars-characters',
+  styleUrl: 'ListStarWarsCharacters.css',
   shadow: true
 })
 export class HelloWorld {
-  @Intent('getHelloWorlds') fetcher: BearerFetch
+  @Intent('getStarWarsCharacters') fetcher: BearerFetch
 
   render() {
     return (
       <div class="root">
-        <h1>Hello from your first scenario</h1>
+        <bearer-typography kind="h4" as="h1">
+          Listing Star Wars Characters
+        </bearer-typography>
         <bearer-paginator
           fetcher={this.fetcher}
           perPage={10}
           renderCollection={collection => (
             <bearer-navigator-collection
               data={collection}
-              renderFunc={item => item}
+              renderFunc={item => item.name}
             />
           )}
         />
