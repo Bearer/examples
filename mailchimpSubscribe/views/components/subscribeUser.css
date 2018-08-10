@@ -1,0 +1,46 @@
+.subscribe{
+  width:100%;
+  float:left;
+}
+
+.subscribe-input {
+    float: left;
+    padding: 12px 20px;
+    margin: 0;
+    color: #030d40;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 0;
+    font-family: 'Open Sans',Montserrat;
+    font-size: .9rem;
+    width: 40%;
+}
+.subscribe-submit {
+  float: left;
+  width: 40%;
+  margin: 0;
+  font-family: 'Open Sans',Montserrat;
+  font-size: .9rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #030d40;
+  border: 1px solid #ffcb00;
+  text-align: center;
+  border-radius: 0;
+  float: left;
+  background: 0 0;
+  background: #ffcb00;
+  padding: 12px 20px;
+  margin: 0;
+  -webkit-appearance: none;
+  -webkit-transform: .3s;
+  -moz-transform: .3s;
+  transition: .3s;
+}
+
+.subscribe-submit:hover {
+  background: #ff7300;
+  border-color: #ff7300;
+  color: #fff;
+  text-decoration: none;
+}
