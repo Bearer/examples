@@ -1,0 +1,25 @@
+{
+  "authorizationURL": "https://www.linkedin.com/oauth/v2/authorization",
+  "tokenURL": "https://www.linkedin.com/oauth/v2/accessToken",
+  "authType": "oauth2",
+  "tokenParams": {},
+  "authorizationParams": {
+    "redirect_uri": "https://int.bearer.sh/v1/auth/callback"
+  },
+  "config": {
+    "state": "DCEeFWf45A53sdfKef424",
+    "scope": ["r_basicprofile"]
+  },
+  "setupViews": [
+    {
+      "type": "text",
+      "label": "Client ID",
+      "controlName": "clientID"
+    },
+    {
+      "type": "password",
+      "label": "Client Secret",
+      "controlName": "clientSecret"
+    }
+  ]
+}
