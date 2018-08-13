@@ -3,21 +3,41 @@
 
 */
 
-import { RootComponent } from '@bearer/core'
+import { RootComponent, Intent, IntentType, BearerFetch, BearerState } from '@bearer/core'
 import '@bearer/ui'
+import { Profile } from './components/profile'
 
 @RootComponent({
   name: 'action',
   group: 'feature'
 })
 export class FeatureAction {
+  @Intent('SaveState', IntentType.SaveState)
+  saveFetcher: any
+  @Intent('getProfile') profileFetcher: BearerFetch
+  @BearerState() profile: Profile
+
+  attachProfile = ({ complete }): void => {
+    this.profileFetcher().then(data => {
+      this.saveFetcher({ body: data[0] })
+      .then(() => {
+        console.log(data)
+        this.profile = data
+        complete()
+      })
+      .catch(error => {
+        throw error
+      })
+    })
+  }
+
   render() {
     return (
-      <bearer-navigator btnProps={ {content:"importlinkedin", kind:"primary"} } direction="right">
+      <bearer-navigator btnProps={ {content:"Profile Page", kind:"primary"} } direction="right" complete={this.attachProfile}>
         <bearer-navigator-auth-screen />
-        <bearer-navigator-screen navigationTitle="People" name="repository">
-            <get-people />
-          </bearer-navigator-screen>
+        {/* <bearer-navigator-screen navigationTitle="Profile Page" name="profile">
+          <get-profile />
+        </bearer-navigator-screen> */}
       </bearer-navigator>
     )
   }

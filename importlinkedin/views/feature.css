@@ -1,0 +1,23 @@
+img {
+  width: 228px;
+  height: 228px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+h1, h2, p {
+  margin: 0 10px;
+}
+
+h1 {
+  font-size: 15px;
+}
+
+h2 {
+  font-size: 13px;
+}
+
+p {
+  padding: 10px 0;
+}

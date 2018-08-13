@@ -4,7 +4,7 @@ export default function(token: string) {
   const headers = {
     'Accept': 'application/json',
     'User-Agent': 'Bearer',
-    'Authorization': `token ${token}`
+    'Authorization': `Bearer ${token}`
   }
 
   return axios.create({

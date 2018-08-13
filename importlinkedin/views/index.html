@@ -42,7 +42,7 @@
           </div>
           <div class="card">
             <div class="card-body">
-              <feature-action setup-id="CHANGE_ME">
+              <feature-action id="action" setup-id="CHANGE_ME">
               </feature-action>
             </div>
           </div>
@@ -52,13 +52,30 @@
           </div>
           <div class="card">
             <div class="card-body">
-              <feature-display setup-id="CHANGE_ME">
+              <feature-display id="display" setup-id="CHANGE_ME">
               </feature-display>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      document.querySelector('#action').addEventListener('bearer:StateSaved', (e) => {
+        console.log('[BEARER]', 'StateSaved', e.detail)
+        document.querySelector('#display').setAttribute('reference-id', e.detail.referenceId)
+        localStorage.setItem('saved-reference-id', e.detail.referenceId)
+      })
+
+      setTimeout(() => {
+        const ref = localStorage.getItem('saved-reference-id')
+        if (ref) {
+          document.querySelector('#display').setAttribute('reference-id', ref)
+          document.querySelector('#action').setAttribute('reference-id', ref)
+        }
+      }, 1000)
+
+    </script>
 </body>
 
 </html>

@@ -8,15 +8,9 @@ export default class getPeopleIntent {
 
   
   static action(context: Toauth2Context, params: any, body: any, callback: TFetchDataCallback) {
-    Client(context.authAccess.accessToken).get('/v1/people/~', { headers: {"x-li-format":"json"}, params: { format: 'json' }})
+    Client(context.authAccess.accessToken).get('/v1/people/~', {params: { format: 'json' }})
       .then(response => {
-        if (response.data.ok) {
-          callback({
-            data: response.data
-          })
-        } else {
-          callback({ error: `Error while fetching users ${JSON.stringify(response.data)}` })
-        }
+        callback({ data: response.data })
       })
       .catch(error => {
       	callback({ error: error.toString() })
