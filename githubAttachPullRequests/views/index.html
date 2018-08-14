@@ -59,6 +59,21 @@
         </div>
       </div>
     </div>
+
+    <script>
+  document.querySelector('feature-action').addEventListener('bearer:StateSaved', (e) => {
+    console.log('[BEARER]', 'StateSaved', e.detail)
+    localStorage.setItem('saved-reference-id', e.detail.referenceId)
+    document.querySelector('feature-display').setAttribute('reference-id', e.detail.referenceId)
+  })
+  setTimeout(() => {
+    const ref = localStorage.getItem('saved-reference-id')
+    if (ref) {
+      document.querySelector('feature-display').setAttribute('reference-id', ref)
+      document.querySelector('feature-action').setAttribute('reference-id', ref)
+    }
+  }, 100)
+</script>
 </body>
 
 </html>
