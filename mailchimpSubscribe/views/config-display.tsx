@@ -8,10 +8,14 @@ import '@bearer/ui'
 
 @RootComponent({
   name: 'display',
-  group: 'feature'
+  group: 'config'
 })
-export class FeatureDisplay {
+export class ConfigDisplay {
+  @Prop() referenceId: string
+
   render() {
-    return (null)
+    return (
+      <display-lists referenceId={this.referenceId}/>
+    )
   }
 }

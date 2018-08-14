@@ -3,7 +3,7 @@
 
 */
 
-import { RootComponent } from '@bearer/core'
+import { RootComponent, Prop } from '@bearer/core'
 import '@bearer/ui'
 
 @RootComponent({
@@ -11,9 +11,10 @@ import '@bearer/ui'
   group: 'feature'
 })
 export class FeatureAction {
+  @Prop() referenceId: string
   render() {
     return (
-      <subscribe-user />
+      <subscribe-user referenceId={this.referenceId}/>
     )
   }
 }

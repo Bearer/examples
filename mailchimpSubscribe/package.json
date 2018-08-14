@@ -15,16 +15,16 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@bearer/core": "0.48.4",
-    "@bearer/intents": "0.48.4",
-    "@bearer/ui": "0.48.4",
+    "@bearer/core": "0.53.0",
+    "@bearer/intents": "0.53.0",
+    "@bearer/ui": "0.53.0",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/bearer-cli": "0.48.4",
+    "@bearer/bearer-cli": "0.53.0",
     "@types/jest": "latest",
-    "@types/node": "latest",
-    "jest": "latest"
+    "@types/node": "10.7.0",
+    "jest": "23.5.0"
   },
   "license": "MIT",
   "jest": {

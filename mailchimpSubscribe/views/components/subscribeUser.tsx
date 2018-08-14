@@ -1,4 +1,4 @@
-import { Component, State, Intent } from '@bearer/core'
+import { Component, State, Intent, Prop, Watch } from '@bearer/core'
 
 @Component({
   tag: 'subscribe-user',
@@ -6,6 +6,9 @@ import { Component, State, Intent } from '@bearer/core'
   shadow: true
 })
 export class SubscribeUser {
+
+  @Watch('referenceId')
+  @Prop() referenceId: string
 
   @State() email: string;
   @State() disabled: boolean = true;
@@ -15,10 +18,11 @@ export class SubscribeUser {
 
   @Intent('subscribeUser') fetcher: any
 
+
   handleSubmit(e) {
     this.disabled = true
     e.preventDefault()
-    this.fetcher({ email_address: this.email })
+    this.fetcher({ email_address: this.email, referenceId: this.referenceId })
       .then(( { data } ) => {
         console.log(data);
         this.complete = true

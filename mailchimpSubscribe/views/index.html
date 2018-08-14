@@ -38,6 +38,26 @@
             </div>
           </div>
           <div class="page-header">
+            <h1 class="page-title">Config component</h1>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <config-action setup-id="CHANGE_ME">
+              </config-action>
+            </div>
+          </div>
+          <div class="page-header">
+            <h1 class="page-title">Config display component</h1>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <config-display setup-id="CHANGE_ME">
+              </config-display>
+            </div>
+          </div>
+
+          <div class="page-header">
             <h1 class="page-title">Action component</h1>
           </div>
           <div class="card">
@@ -46,19 +66,27 @@
               </feature-action>
             </div>
           </div>
-
-          <div class="page-header">
-            <h1 class="page-title">Display component</h1>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <feature-display setup-id="CHANGE_ME">
-              </feature-display>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+
+    <script>
+      document.querySelector('config-action').addEventListener('bearer:StateSaved', (e) => {
+        console.log('[BEARER]', 'StateSaved', e.detail)
+        localStorage.setItem('saved-reference-id', e.detail.referenceId)
+        document.querySelector('config-display').setAttribute('reference-id', e.detail.referenceId)
+        document.querySelector('config-display').setAttribute('reference-id', e.detail.referenceId)
+        document.querySelector('feature-action').setAttribute('reference-id', e.detail.referenceId)
+      })
+      setTimeout(() => {
+        const ref = localStorage.getItem('saved-reference-id')
+        if (ref) {
+          document.querySelector('config-display').setAttribute('reference-id', ref)
+          document.querySelector('config-action').setAttribute('reference-id', ref)
+          document.querySelector('feature-action').setAttribute('reference-id', ref)
+        }
+      }, 100)
+  </script>
 </body>
 
 </html>
