@@ -2,7 +2,7 @@ import { FetchData, Toauth2Context, TFetchDataCallback } from '@bearer/intents'
 // Uncomment this line if you need to use Client
 import Client from './client'
 
-export default class getPeopleIntent {
+export default class getProfileIntent {
   static intentName: string = 'getProfile'
   static intentType: any = FetchData
 
