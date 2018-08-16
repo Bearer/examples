@@ -6,9 +6,12 @@ import { Component, State, Prop } from '@bearer/core'
   shadow: true
 })
 export class WhatSelector {
-  @State() what: string = ''
-  @Prop() next: (data: any) => void
-  @State() fieldSet: any = [{ label: 'What to reming?', type: 'text', controlName: 'what', value: '' }]
+  @State()
+  what: string = ''
+  @Prop()
+  next: (data: any) => void
+  @State()
+  fieldSet: any = [{ label: 'What to reming?', type: 'text', controlName: 'what', value: '' }]
 
   handleSubmit = e => {
     e.preventDefault()
@@ -19,14 +22,17 @@ export class WhatSelector {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} class="root">
         <bearer-input
           type="text"
+          placeholder="Eat bananas 🍌"
           onValueChange={value => {
             this.what = value.detail
           }}
         />
-        <bearer-input type="submit" disabled={!this.what} onSubmit={this.handleSubmit} />
+        <div class="button">
+          <bearer-input type="submit" disabled={!this.what} onSubmit={this.handleSubmit} />
+        </div>
       </form>
     )
   }

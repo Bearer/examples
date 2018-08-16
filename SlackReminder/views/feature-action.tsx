@@ -1,23 +1,32 @@
 /*
-  The purpose of this component is to deal with scenario navigation between each screens.
+  The purpose of this component is to deal with scenario navigation between each views.
 
 */
 
-import { Component, SaveStateIntent, BearerFetch, Prop, State } from '@bearer/core'
+import { RootComponent, Prop, State, Intent, BearerFetch } from '@bearer/core'
 import '@bearer/ui'
 
-@Component({
-  tag: 'slack-reminder',
-  shadow: true
+@RootComponent({
+  name: 'action',
+  group: 'feature'
 })
-export class SlackReminderAction {
-  @State() loading: boolean
-  @SaveStateIntent() intent: BearerFetch
-  @State() reminded: boolean = false
-  @Prop() text: string
-  @Prop() what?: string
-  @Prop() when?: string
-  @Prop() who?: string
+export class FeatureAction {
+  @State()
+  loading: boolean
+  @Intent('CreateReminder')
+  intent: BearerFetch
+  @State()
+  reminded: boolean = false
+  @Prop()
+  text: string
+  @Prop()
+  what?: string
+  @Prop()
+  when?: string
+  @Prop()
+  who?: string
+  @Prop()
+  dateChoices: string
 
   perform = ({ who, what, when }): Promise<any> => {
     this.loading = true
@@ -46,7 +55,7 @@ export class SlackReminderAction {
 
   remindMeFromScreen = ({ who, what, when }): Promise<any> => {
     return this.perform({
-      when: this.when || when,
+      when: this.when || when.value,
       what: this.what || what,
       who: this.who || who.id
     })
@@ -59,6 +68,13 @@ export class SlackReminderAction {
 
   get buttonText(): any {
     return this.text || 'Remind me'
+  }
+
+  get dateChoicesData(): Array<{ value: string; text: string }> {
+    if (this.dateChoices) {
+      return JSON.parse(this.dateChoices)
+    }
+    return null
   }
 
   render() {
@@ -93,7 +109,7 @@ export class SlackReminderAction {
         {!this.when && (
           <bearer-navigator-screen
             navigationTitle="When to remind?"
-            renderFunc={({ next }) => <when-selector next={next} />}
+            renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
             name="when"
           />
         )}

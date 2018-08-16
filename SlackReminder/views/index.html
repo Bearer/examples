@@ -5,13 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <link href="https://cdn.rawgit.com/tabler/tabler/dev/dist/assets/css/tabler.css" rel="stylesheet" />
-  <title>SlackReminder scenario</title>
-  <script>
-    window['BEARER_CONFIG'] = {
-      integrationHost: 'https://int.staging.bearer.sh/'
-    }
-  </script>
-  <script src="/build/slack-reminder.js"></script>
+  <title>SlackReminder</title>
+  <script src="/build/localhost.js"></script>
 </head>
 
 <body>
@@ -35,12 +30,11 @@
           </div>
           <div class="card">
             <div class="card-body">
-              <slack-reminder-setup>
-              </slack-reminder-setup>
-
+              <setup-action>
+              </setup-action>
               <hr />
-              <slack-reminder-setup-display>
-              </slack-reminder-setup-display>
+              <setup-display>
+              </setup-display>
             </div>
           </div>
           <div class="page-header">
@@ -49,20 +43,20 @@
           <div class="card">
             <div class="card-body">
               <h3 class="page-title">Remind me</h3>
-              <slack-reminder setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me ⏰" what="Eat bananas 🍌" when="in 1 min"
-                who="me"></slack-reminder>
+              <feature-action setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me ⏰" what="Eat bananas 🍌" when="in 1 min"
+                who="me"></feature-action>
               <hr />
               <h3 class="page-title">Remind someone</h3>
-              <slack-reminder setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind someone 👨‍💻" what="Eat bananas 🍌" when="in 1 min"></slack-reminder>
+              <feature-action setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind someone 👨‍💻" what="Eat bananas 🍌" when="in 1 min"></feature-action>
               <hr />
               <h3 class="page-title">Remind something</h3>
-              <slack-reminder setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me something ✅" when="in 1 min" who="me"></slack-reminder>
+              <feature-action setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me something ✅" when="in 1 min" who="me"></feature-action>
               <hr />
               <h3 class="page-title">Remind sometime</h3>
-              <slack-reminder setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me sometime 🗓" what="Eat bananas 🍌" who="me"></slack-reminder>
+              <feature-action setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind me sometime 🗓" what="Eat bananas 🍌" who="me"></feature-action>
               <hr />
               <h3 class="page-title">Remind something to someone sometime</h3>
-              <slack-reminder setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind"></slack-reminder>
+              <feature-action setup-id="c5d4f400-93ed-11e8-9112-5f8b595861d4" text="Remind"></feature-action>
             </div>
           </div>
         </div>

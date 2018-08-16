@@ -1,14 +1,11 @@
 {
   "name": "slack-reminder",
   "version": "0.0.1",
-  "description": "SlackReminder scenario",
+  "description": "SlackReminder",
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "module": "dist/esm/index.js",
   "collection": "dist/collection/collection-manifest.json",
-  "files": [
-    "dist/"
-  ],
   "scripts": {
     "build": "stencil build",
     "dev": "stencil build --dev --watch --serve",
@@ -18,13 +15,13 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@bearer/core": "0.33.0",
-    "@bearer/intents": "0.32.0",
-    "@bearer/ui": "0.33.0",
+    "@bearer/core": "latest",
+    "@bearer/intents": "latest",
+    "@bearer/ui": "latest",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/bearer-cli": "0.33.0",
+    "@bearer/cli": "latest",
     "@types/jest": "latest",
     "@types/node": "latest",
     "jest": "latest"

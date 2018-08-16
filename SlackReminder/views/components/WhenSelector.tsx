@@ -1,31 +1,28 @@
 import { Component, Prop } from '@bearer/core'
 
+const defaults = [
+  {
+    text: '⏰ in 1min',
+    value: 'in 1 min'
+  },
+  {
+    text: '🗓 next monday',
+    value: 'next monday'
+  }
+]
 @Component({
   tag: 'when-selector',
-  styleUrl: 'WhenSelector.css',
   shadow: true
 })
 export class WhenSelector {
-  @Prop() next: (when: string) => void
   @Prop()
-  dates: Array<{ text: string; value: string }> = [
-    {
-      text: 'in 1min',
-      value: 'in 1 min'
-    }
-  ]
+  next: (when: string) => void
+  @Prop()
+  dates: Array<{ text: string; value: string }> = defaults
 
   goNext = when => this.next(when)
 
   render() {
-    return (
-      <div class="root">
-        {this.dates.map(date => (
-          <bearer-button kind="primary" onClick={() => this.goNext(date.value)}>
-            {date.text}
-          </bearer-button>
-        ))}
-      </div>
-    )
+    return <bearer-navigator-collection renderFunc={date => <span>{date.text}</span>} data={this.dates || defaults} />
   }
 }

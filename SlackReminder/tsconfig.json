@@ -4,7 +4,11 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2015", "esnext"],
+    "lib": [
+      "dom",
+      "es2015",
+      "esnext"
+    ],
     "moduleResolution": "node",
     "module": "es2015",
     "target": "es2015",
@@ -13,6 +17,13 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": ["views", "types/jsx.d.ts", ".bearer/views/src/components.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "views",
+    ".bearer/tmp",
+    "types/jsx.d.ts",
+    ".bearer/views/src/components.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
