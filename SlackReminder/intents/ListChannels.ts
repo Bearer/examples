@@ -1,22 +1,26 @@
 import { FetchData, Toauth2Context, TFetchDataCallback } from '@bearer/intents'
-// Uncomment this line if you need to use Client
-// import Client from './client'
+import Client from './client'
 
 export default class ListChannelsIntent {
   static intentName: string = 'ListChannels'
   static intentType: any = FetchData
 
-  
-  static action(context: Toauth2Context, params: any, body: any, callback: TFetchDataCallback) {
-    //... your code goes here
-    // use the client defined in client.ts to fetch real object like that:
-    // Client(context.authAccess.accessToken).get('/people').then(({ data }) => {
-    //     callback({ data })
-    //   })
-    //   .catch((error) => {
-    //     callback({ error: error.toString() })
-    //   })
-    callback({ data: []})
+  static action(context: Toauth2Context, _params: any, _body: any, callback: TFetchDataCallback) {
+    const request = Client(context.authAccess.accessToken).get('channels.list')
+    request
+      .then(response => {
+        if (response.data.ok) {
+          callback({
+            data: response.data.channels.map(({ id, name }) => ({ id, name }))
+          })
+        } else {
+          callback({ error: `Error while fetching channels ${JSON.stringify(response.data)}` })
+        }
+      })
+      .catch(e =>
+        callback({
+          error: e.toString()
+        })
+      )
   }
 }
-
