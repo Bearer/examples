@@ -22,14 +22,17 @@ export class WhatSelector {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} class="root">
         <bearer-input
           type="text"
+          placeholder="Eat bananas 🍌"
           onValueChange={value => {
             this.what = value.detail
           }}
         />
-        <bearer-input type="submit" disabled={!this.what} onSubmit={this.handleSubmit} />
+        <div class="button">
+          <bearer-input type="submit" disabled={!this.what} onSubmit={this.handleSubmit} />
+        </div>
       </form>
     )
   }

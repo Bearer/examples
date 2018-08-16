@@ -22,8 +22,8 @@ export class WhoSelector {
     return this.kind === 'person' ? this.usersFetch : this.channelsFetch
   }
 
-  changeKind = kind => {
-    this.kind = kind
+  changeKind = ({ detail }) => {
+    this.kind = detail
   }
 
   componentDidUpdate() {
@@ -35,8 +35,14 @@ export class WhoSelector {
   render() {
     return (
       <div class="root">
-        <button onClick={() => this.changeKind('person')}>Someone</button>
-        <button onClick={() => this.changeKind('channel')}>A channel</button>
+        <div class="controls">
+          <bearer-radio
+            inline
+            buttons={[{ value: 'person', label: '@someone' }, { value: 'channel', label: '#channel' }]}
+            value={this.kind}
+            onValueChange={this.changeKind}
+          />
+        </div>
         <bearer-scrollable
           fetcher={this.fetcher}
           renderCollection={collection => (

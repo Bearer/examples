@@ -2,7 +2,6 @@ import { Component, Prop } from '@bearer/core'
 
 @Component({
   tag: 'when-selector',
-  styleUrl: 'WhenSelector.css',
   shadow: true
 })
 export class WhenSelector {
@@ -23,13 +22,6 @@ export class WhenSelector {
   goNext = when => this.next(when)
 
   render() {
-    return (
-      <bearer-navigator-collection renderFunc={date => <span>{date.text}</span>} data={this.dates} />
-      // {this.dates.map(date => (
-      //   <bearer-button kind="primary" onClick={() => this.goNext(date.value)}>
-      //     {date.text}
-      //   </bearer-button>
-      // ))}
-    )
+    return <bearer-navigator-collection renderFunc={date => <span>{date.text}</span>} data={this.dates} />
   }
 }
