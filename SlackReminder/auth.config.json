@@ -1,0 +1,17 @@
+{
+  "authorizationURL": "https://slack.com/oauth/authorize",
+  "tokenURL": "https://slack.com/api/oauth.access",
+  "authType": "oauth2",
+  "authorizationParams": {
+    "access_type": "offline",
+    "consent": true
+  },
+  "config": {
+    "accessType": "offline",
+    "scope": ["reminders:write", "channels:read", "groups:read", "users:read"]
+  },
+  "setupViews": [
+    { "label": "Client ID", "type": "text", "controlName": "clientID" },
+    { "label": "Client Secret", "type": "password", "controlName": "clientSecret" }
+  ]
+}
