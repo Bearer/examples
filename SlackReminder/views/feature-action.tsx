@@ -53,7 +53,7 @@ export class FeatureAction {
 
   remindMeFromScreen = ({ who, what, when }): Promise<any> => {
     return this.perform({
-      when: this.when || when,
+      when: this.when || when.value,
       what: this.what || what,
       who: this.who || who.id
     })

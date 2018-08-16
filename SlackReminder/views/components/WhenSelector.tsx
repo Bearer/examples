@@ -11,12 +11,12 @@ export class WhenSelector {
   @Prop()
   dates: Array<{ text: string; value: string }> = [
     {
-      text: 'in 1min',
+      text: '⏰ in 1min',
       value: 'in 1 min'
     },
     {
-      text: 'in 15 min',
-      value: 'in 15 min'
+      text: '🗓 next monday',
+      value: 'next monday'
     }
   ]
 
@@ -24,13 +24,12 @@ export class WhenSelector {
 
   render() {
     return (
-      <div class="root">
-        {this.dates.map(date => (
-          <bearer-button kind="primary" onClick={() => this.goNext(date.value)}>
-            {date.text}
-          </bearer-button>
-        ))}
-      </div>
+      <bearer-navigator-collection renderFunc={date => <span>{date.text}</span>} data={this.dates} />
+      // {this.dates.map(date => (
+      //   <bearer-button kind="primary" onClick={() => this.goNext(date.value)}>
+      //     {date.text}
+      //   </bearer-button>
+      // ))}
     )
   }
 }
