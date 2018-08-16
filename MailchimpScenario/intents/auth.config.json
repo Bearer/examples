@@ -1,0 +1,9 @@
+{
+  "authType": "apiKey",
+  "configScreen": [
+    { "label": "List ID", "type": "text", "controlName": "ListID" }
+  ],
+  "setupScreen": [
+    { "label": "API Key", "type": "password", "controlName": "apiKey" }
+  ]
+}
