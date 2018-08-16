@@ -25,6 +25,8 @@ export class FeatureAction {
   when?: string
   @Prop()
   who?: string
+  @Prop()
+  dateChoices: string
 
   perform = ({ who, what, when }): Promise<any> => {
     this.loading = true
@@ -68,6 +70,13 @@ export class FeatureAction {
     return this.text || 'Remind me'
   }
 
+  get dateChoicesData(): Array<{ value: string; text: string }> {
+    if (this.dateChoices) {
+      return JSON.parse(this.dateChoices)
+    }
+    return null
+  }
+
   render() {
     const multipleScreens = !this.who || !this.when || !this.what
     const btnProps: JSXElements.BearerButtonAttributes = {
@@ -100,7 +109,7 @@ export class FeatureAction {
         {!this.when && (
           <bearer-navigator-screen
             navigationTitle="When to remind?"
-            renderFunc={({ next }) => <when-selector next={next} />}
+            renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
             name="when"
           />
         )}
