@@ -2,7 +2,7 @@
 
 Please find below some sample Scenario:
 - [Github Attach Pull Requests](./githubAttachPullRequests)
-- [Slack Reminder](./slackReminder)
+- [Slack Reminder](./SlackReminder)
 - [MailChimp Subscribe](./mailchimpSubscribe)
 - [HelloWold](./helloWorld)
 
