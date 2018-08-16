@@ -2,7 +2,9 @@
   "authorizationURL": "https://www.linkedin.com/oauth/v2/authorization",
   "tokenURL": "https://www.linkedin.com/oauth/v2/accessToken",
   "authType": "oauth2",
-  "tokenParams": {},
+  "tokenParams": {
+    "redirect_uri": "https://int.bearer.sh/v1/auth/callback"
+  },
   "authorizationParams": {
     "redirect_uri": "https://int.bearer.sh/v1/auth/callback"
   },
