@@ -7,7 +7,7 @@ import { RootComponent, BearerState, Intent, IntentType } from '@bearer/core'
 import '@bearer/ui'
 
 @RootComponent({
-  name: 'action',
+  role: 'action',
   group: 'config'
 })
 export class ConfigAction {

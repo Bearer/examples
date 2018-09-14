@@ -8,7 +8,7 @@ import '@bearer/ui'
 import { Profile } from './components/profile'
 
 @RootComponent({
-  name: 'action',
+  role: 'action',
   group: 'feature'
 })
 export class FeatureAction {

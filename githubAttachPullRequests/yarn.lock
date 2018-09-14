@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@bearer/bearer-cli@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.npmjs.org/@bearer/bearer-cli/-/bearer-cli-0.60.0.tgz#7007a3e91db97a249515b2c6edb89a416a87b99c"
+"@bearer/bearer-cli@^0.60.2":
+  version "0.60.2"
+  resolved "https://registry.yarnpkg.com/@bearer/bearer-cli/-/bearer-cli-0.60.2.tgz#32028908470197ec0e9ff4d19b022f5488d40f23"
   dependencies:
     "@bearer/intents" "^0.60.0"
     "@bearer/templates" "^0.60.0"
@@ -70,11 +70,11 @@
     uuid "^3.3.2"
     webpack "^4.12.0"
 
-"@bearer/cli@^0.60.1":
-  version "0.60.1"
-  resolved "https://registry.npmjs.org/@bearer/cli/-/cli-0.60.1.tgz#2f2c74d365ee12df14f3ca5784921f5a070483a8"
+"@bearer/cli@next":
+  version "0.60.2"
+  resolved "https://registry.yarnpkg.com/@bearer/cli/-/cli-0.60.2.tgz#6c3e8bb37e3618e82662e6b6bc2b1bf4590b5e0d"
   dependencies:
-    "@bearer/bearer-cli" "^0.60.0"
+    "@bearer/bearer-cli" "^0.60.2"
     "@bearer/intents" "^0.60.0"
     "@bearer/templates" "^0.60.0"
     "@bearer/transpiler" "^0.60.0"
@@ -107,9 +107,9 @@
     tslib "^1"
     webpack "^4.17.1"
 
-"@bearer/core@^0.60.0":
+"@bearer/core@^0.60.0", "@bearer/core@next":
   version "0.60.0"
-  resolved "https://registry.npmjs.org/@bearer/core/-/core-0.60.0.tgz#e2bc08d42ce1894081ff4e4a58df4e0727929a8b"
+  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.60.0.tgz#e2bc08d42ce1894081ff4e4a58df4e0727929a8b"
   dependencies:
     "@stencil/core" "0.11.2"
     babel-plugin-inline-dotenv "^1.1.2"
@@ -120,9 +120,9 @@
     rollup-plugin-replace "^2.0.0"
     typescript "^2.9.2"
 
-"@bearer/intents@^0.60.0":
+"@bearer/intents@^0.60.0", "@bearer/intents@next":
   version "0.60.0"
-  resolved "https://registry.npmjs.org/@bearer/intents/-/intents-0.60.0.tgz#f8cd00b82603e8a2940ad8f6246ed5c624a30566"
+  resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.60.0.tgz#f8cd00b82603e8a2940ad8f6246ed5c624a30566"
   dependencies:
     axios "^0.18.0"
     typescript "^2.9.2"
@@ -148,9 +148,9 @@
   version "0.60.0"
   resolved "https://registry.npmjs.org/@bearer/types/-/types-0.60.0.tgz#c8abb51ec1dc0ace208abdbafcb853945a19e780"
 
-"@bearer/ui@^0.60.0":
+"@bearer/ui@next":
   version "0.60.0"
-  resolved "https://registry.npmjs.org/@bearer/ui/-/ui-0.60.0.tgz#df028533063989ca3e34f540369262bd6f4dd8fa"
+  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.60.0.tgz#df028533063989ca3e34f540369262bd6f4dd8fa"
   dependencies:
     "@bearer/core" "^0.60.0"
     "@stencil/core" "0.11.2"

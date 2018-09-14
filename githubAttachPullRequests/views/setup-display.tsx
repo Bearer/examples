@@ -6,7 +6,7 @@ import { RootComponent, Prop } from "@bearer/core";
 import "@bearer/ui";
 
 @RootComponent({
-  group: "setup",
+  group: 'setup',
   role: 'display'
 })
 export class SetupDisplay {

@@ -16,13 +16,14 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@bearer/bearer-cli@0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/bearer-cli/-/bearer-cli-0.53.0.tgz#b4ea896b8ee3d0e5b38a0903e345af059a00981a"
+"@bearer/bearer-cli@next":
+  version "0.60.2"
+  resolved "https://registry.yarnpkg.com/@bearer/bearer-cli/-/bearer-cli-0.60.2.tgz#32028908470197ec0e9ff4d19b022f5488d40f23"
   dependencies:
-    "@bearer/intents" "^0.53.0"
-    "@bearer/templates" "^0.53.0"
-    "@bearer/transpiler" "^0.53.0"
+    "@bearer/intents" "^0.60.0"
+    "@bearer/templates" "^0.60.0"
+    "@bearer/transpiler" "^0.60.0"
+    "@bearer/types" "^0.60.0"
     "@koa/cors" "^2.2.2"
     amazon-cognito-identity-js "^2.0.3"
     archiver "^2.1.1"
@@ -35,6 +36,7 @@
     copy-template-dir "^1.4.0"
     cosmiconfig "^5.0.5"
     del "^3.0.0"
+    detect-file "^1.0.0"
     express "^4.16.3"
     find-up "^2.1.0"
     fs-extra "^6.0.1"
@@ -68,9 +70,9 @@
     uuid "^3.3.2"
     webpack "^4.12.0"
 
-"@bearer/core@0.53.0", "@bearer/core@^0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/core/-/core-0.53.0.tgz#c6d266f23599fce5bb2ac655f179e14f11289395"
+"@bearer/core@^0.60.0", "@bearer/core@next":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.60.0.tgz#e2bc08d42ce1894081ff4e4a58df4e0727929a8b"
   dependencies:
     "@stencil/core" "0.11.2"
     babel-plugin-inline-dotenv "^1.1.2"
@@ -81,22 +83,23 @@
     rollup-plugin-replace "^2.0.0"
     typescript "^2.9.2"
 
-"@bearer/intents@0.53.0", "@bearer/intents@^0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/intents/-/intents-0.53.0.tgz#391e2902a8e70542d4c191b5b13597535cc5133d"
+"@bearer/intents@^0.60.0", "@bearer/intents@next":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.60.0.tgz#f8cd00b82603e8a2940ad8f6246ed5c624a30566"
   dependencies:
     axios "^0.18.0"
     typescript "^2.9.2"
 
-"@bearer/templates@^0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/templates/-/templates-0.53.0.tgz#04bb2b5c196ee4ad71cfd32551fc9e5ace1e12bf"
+"@bearer/templates@^0.60.0":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/templates/-/templates-0.60.0.tgz#2e7047481148086853397057f53291b0066538fb"
   dependencies:
+    "@bearer/types" "^0.60.0"
     typescript "^2.9.2"
 
-"@bearer/transpiler@^0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/transpiler/-/transpiler-0.53.0.tgz#a518aca483be1148b1380bded1aa98b1f5a803f5"
+"@bearer/transpiler@^0.60.0":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/transpiler/-/transpiler-0.60.0.tgz#e7af2b618dd2d9036f3d706d84f03e9f93224557"
   dependencies:
     async-foreach "^0.1.3"
     case "^1.5.5"
@@ -104,13 +107,17 @@
     fs-extra "^6.0.1"
     typescript "^2.9.2"
 
-"@bearer/ui@0.53.0":
-  version "0.53.0"
-  resolved "https://registry.npmjs.org/@bearer/ui/-/ui-0.53.0.tgz#6f269459ab056a9293a586b35ef432cdb8fdf045"
+"@bearer/types@^0.60.0":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/types/-/types-0.60.0.tgz#c8abb51ec1dc0ace208abdbafcb853945a19e780"
+
+"@bearer/ui@next":
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.60.0.tgz#df028533063989ca3e34f540369262bd6f4dd8fa"
   dependencies:
-    "@bearer/core" "^0.53.0"
+    "@bearer/core" "^0.60.0"
     "@stencil/core" "0.11.2"
-    "@stencil/sass" "^0.0.5"
+    "@stencil/sass" "^0.1.0"
     bootstrap "^4.1.0"
 
 "@cronvel/get-pixels@^3.3.1":
@@ -154,9 +161,9 @@
     typescript "~2.9.1"
     workbox-build "^3.1.0"
 
-"@stencil/sass@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/@stencil/sass/-/sass-0.0.5.tgz#eaa5145c2b46c64a6fce9629a3f3fca43a0bd1ab"
+"@stencil/sass@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@stencil/sass/-/sass-0.1.0.tgz#ecf53bc732b20577935e8de0fe53995649735b95"
   dependencies:
     node-sass "4.9.0"
 

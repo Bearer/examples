@@ -7,7 +7,7 @@ import { RootComponent, Prop, State, Intent, BearerFetch } from '@bearer/core'
 import '@bearer/ui'
 
 @RootComponent({
-  name: 'action',
+  role: 'action',
   group: 'feature'
 })
 export class FeatureAction {
