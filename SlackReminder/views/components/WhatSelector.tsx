@@ -11,7 +11,7 @@ export class WhatSelector {
   @Prop()
   next: (data: any) => void
   @State()
-  fieldSet: any = [{ label: 'What to reming?', type: 'text', controlName: 'what', value: '' }]
+  fieldSet: any = [{ label: 'What to remind?', type: 'text', controlName: 'what', value: '' }]
 
   handleSubmit = e => {
     e.preventDefault()
@@ -25,7 +25,8 @@ export class WhatSelector {
       <form onSubmit={this.handleSubmit} class="root">
         <bearer-input
           type="text"
-          placeholder="Eat bananas 🍌"
+          label="Message:"
+          placeholder="Ex: Bring 🐻 to the party"
           onValueChange={value => {
             this.what = value.detail
           }}

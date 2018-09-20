@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  display: inline-block;
+}
+
+span.text {
+  padding-left: 20px;
+}
