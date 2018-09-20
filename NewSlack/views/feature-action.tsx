@@ -11,7 +11,7 @@ import '@bearer/ui'
   group: 'feature'
 })
 export class FeatureAction {
-  @Prop({ mutable: true }) authId: string
+  @Prop({ mutable: true }) authIdentifier: string
   @Prop({ mutable: true }) channelId: string
 
   componentDidLoad() {
@@ -19,7 +19,7 @@ export class FeatureAction {
       this.channelId = data.detail.referenceId
     })
     Bearer.emitter.addListener(Events.AUTHORIZED, data => {
-      this.authId = data.scenarioId.data.userId
+      this.authIdentifier = data.scenarioId.data.authIdentifier
     })
   }
 
@@ -34,7 +34,7 @@ export class FeatureAction {
             name="channel"
             navigationTitle="Share"
           >
-            <share-slack authId={this.authId} channelId={this.channelId} />
+            <share-slack authIdentifier={this.authIdentifier} channelId={this.channelId} />
           </bearer-navigator-screen>
         </bearer-navigator>
       </div>

@@ -15,9 +15,7 @@ export default class SaveChannelIntent {
     callback({
       state: {
         ...state,
-        channel: {
-          id: body.channel.id
-        }
+        id: body.channel.id
       },
       data: {
         channel: body.channel

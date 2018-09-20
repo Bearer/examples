@@ -7,17 +7,17 @@ import { BearerFetch, Component, Intent, Prop, State, Watch } from '@bearer/core
 export class Share {
   @Intent('Share') fetcher: BearerFetch
   @Prop() channelId: string
-  @Prop() authId: string
+  @Prop() authIdentifier: string
   @State() channel: any
 
   @Watch('channelId')
   channelUpdated(newValue: string, _oldValue: string) {
-    if(newValue && this.authId) {
+    if(newValue && this.authIdentifier) {
       this.fetchChannel()
     }
   }
 
-  @Watch('authId')
+  @Watch('authIdentifier')
   authUpdated(newValue: string, _oldValue: string) {
     if(newValue && this.channelId) {
       this.fetchChannel()
@@ -30,7 +30,7 @@ export class Share {
 
   fetchChannel() {
     return this.fetcher({
-      authId: this.authId,
+      authIdentifier: this.authIdentifier,
       channelId: this.channelId
     })
     .then( data => {
