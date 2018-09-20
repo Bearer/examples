@@ -15,6 +15,34 @@ export default {
       label: 'Setup Display Component'
     },
     {
+      classname: 'ConnectAction',
+      isRoot: true,
+      initialTagName: 'connect-action',
+      group: 'connect',
+      label: 'Connect Action Component'
+    },
+    {
+      classname: 'ConnectDisplay',
+      isRoot: true,
+      initialTagName: 'connect-display',
+      group: 'connect',
+      label: 'Connect Display Component'
+    },
+    {
+      classname: 'ChannelAction',
+      isRoot: true,
+      initialTagName: 'channel-action',
+      group: 'channel',
+      label: 'Channel Action Component'
+    },
+    {
+      classname: 'ChannelDisplay',
+      isRoot: true,
+      initialTagName: 'channel-display',
+      group: 'channel',
+      label: 'Channel Display Component'
+    },
+    {
       classname: 'FeatureAction',
       isRoot: true,
       initialTagName: 'feature-action',
