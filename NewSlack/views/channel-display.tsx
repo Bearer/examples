@@ -11,7 +11,8 @@ import '@bearer/ui'
   group: 'channel'
 })
 export class ChannelDisplay {
-  @State() channelId: string
+  @State()
+  channelId: string
 
   componentDidLoad() {
     Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
@@ -20,12 +21,11 @@ export class ChannelDisplay {
   }
 
   render() {
-    if this.channelId
-      return (
-        <p>
-          User authenticated with Channel ID:
-          <bearer-badge>{this.channelId ? this.channelId : "Not Set"}</bearer-badge>
-        </p>
-      )
+    return (
+      <p>
+        User authenticated with Channel ID:
+        <bearer-badge>{this.channelId ? this.channelId : 'Not Set'}</bearer-badge>
+      </p>
+    )
   }
 }

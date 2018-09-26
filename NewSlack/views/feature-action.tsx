@@ -11,8 +11,10 @@ import '@bearer/ui'
   group: 'feature'
 })
 export class FeatureAction {
-  @Prop({ mutable: true }) authIdentifier: string
-  @Prop({ mutable: true }) channelId: string
+  @Prop({ mutable: true })
+  authIdentifier: string
+  @Prop({ mutable: true })
+  channelId: string
 
   componentDidLoad() {
     Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
@@ -25,19 +27,11 @@ export class FeatureAction {
 
   render() {
     return (
-      <div>
-        <bearer-navigator
-          btnProps={ {content:"Share", kind:"primary"} }
-          direction="right"
-        >
-          <bearer-navigator-screen
-            name="channel"
-            navigationTitle="Share"
-          >
-            <share-slack authIdentifier={this.authIdentifier} channelId={this.channelId} />
-          </bearer-navigator-screen>
-        </bearer-navigator>
-      </div>
+      <bearer-navigator btnProps={{ content: 'Share', kind: 'primary' }} direction="right">
+        <bearer-navigator-screen name="channel" navigationTitle="Share">
+          <share-slack authIdentifier={this.authIdentifier} channelId={this.channelId} />
+        </bearer-navigator-screen>
+      </bearer-navigator>
     )
   }
 }

@@ -11,12 +11,15 @@ import '@bearer/ui'
   group: 'channel'
 })
 export class ChannelAction {
-  @Intent('saveChannel', IntentType.SaveState) saveChannel: any
-  @BearerState() attachedChannel: string
-  @Element() el: HTMLElement
+  @Intent('saveChannel', IntentType.SaveState)
+  saveChannel: any
+  @BearerState()
+  attachedChannel: string
+  @Element()
+  el: HTMLElement
 
   componentDidLoad() {
-    this.el.addEventListener('bearer:StateSaved', (e) => {
+    this.el.addEventListener('bearer:StateSaved', e => {
       Bearer.emitter.emit(`bearer:StateSaved:${this.SCENARIO_ID}`, e)
     })
   }
@@ -27,27 +30,22 @@ export class ChannelAction {
         this.attachedChannel = data.channel
         complete()
       })
-      .catch( error => {
+      .catch(error => {
         throw error
       })
   }
 
   render() {
     return (
-      <div>
-        <bearer-navigator
-          btnProps={ {content:"Select a List", kind:"primary"} }
-          direction="right"
-          complete={this.attachChannel}
-        >
-          <bearer-navigator-screen
-            name="channel"
-            navigationTitle="Available Channels"
-          >
-            <retrieve-channels />
-          </bearer-navigator-screen>
-        </bearer-navigator>
-      </div>
+      <bearer-navigator
+        btnProps={{ content: 'Select a List', kind: 'primary' }}
+        direction="right"
+        complete={this.attachChannel}
+      >
+        <bearer-navigator-screen name="channel" navigationTitle="Available Channels">
+          <retrieve-channels />
+        </bearer-navigator-screen>
+      </bearer-navigator>
     )
   }
 }

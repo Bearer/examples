@@ -13,10 +13,7 @@ import '@bearer/ui'
 export class ConnectAction {
   render() {
     return (
-      <bearer-navigator
-        btnProps={ { content:"Connect Action", kind:"primary" } }
-        direction="right"
-      >
+      <bearer-navigator btnProps={{ content: 'Connect Action', kind: 'primary' }} direction="right">
         <bearer-navigator-auth-screen />
       </bearer-navigator>
     )
