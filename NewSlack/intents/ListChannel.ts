@@ -8,11 +8,11 @@ export default class ListChannelIntent {
 
   static action(context: TOAUTH2AuthContext, params: any, body: any, callback: TFetchDataCallback) {
     Client(context.authAccess.accessToken)
-      .get('channels.list')
+      .get('conversations.list', { params: { type: 'public_channel,private_channel' } })
       .then(response => {
         if (response.data.ok) {
           callback({
-            data: response.data.channels.map(({ id, name }) => ({ id, name }))
+            data: response.data.channels.map(({ id, name, is_private }) => ({ id, name, is_private }))
           })
         } else {
           callback({ error: `Error while fetching users ${JSON.stringify(response.data)}` })
