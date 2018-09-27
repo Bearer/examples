@@ -76,3 +76,10 @@
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
 }
+
+.btn-edit {
+  background: none;
+  border: none;
+  color: #5f7df6;
+  padding: 0 2px;
+}

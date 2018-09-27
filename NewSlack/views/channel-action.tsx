@@ -112,7 +112,11 @@ export class ChannelAction {
     if (this.channel && !this.editMode) {
       return (
         <div>
-          #{this.channel.name} <button onClick={this.toggleEdit}>Edit</button>
+          {this.channel.is_private ? <channel-lock /> : '#'}
+          {this.channel.name}{' '}
+          <button class="btn-edit" onClick={this.toggleEdit}>
+            (Edit)
+          </button>
         </div>
       )
     } else {
@@ -140,7 +144,8 @@ export class ChannelAction {
                   }}
                   onMouseEnter={this.onFocus(index)}
                 >
-                  {c.is_private ? <channel-lock /> : '#'} {c.name}
+                  {c.is_private ? <channel-lock /> : '#'}
+                  {c.name}
                   <button onFocus={this.onFocus(index)}>Select</button>
                 </li>
               ))}
