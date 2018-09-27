@@ -22,13 +22,6 @@ export default {
       label: 'Connect Action Component'
     },
     {
-      classname: 'ConnectDisplay',
-      isRoot: true,
-      initialTagName: 'connect-display',
-      group: 'connect',
-      label: 'Connect Display Component'
-    },
-    {
       classname: 'ChannelAction',
       isRoot: true,
       initialTagName: 'channel-action',
@@ -48,13 +41,6 @@ export default {
       initialTagName: 'feature-action',
       group: 'feature',
       label: 'Feature Action Component'
-    },
-    {
-      classname: 'FeatureDisplay',
-      isRoot: true,
-      initialTagName: 'feature-display',
-      group: 'feature',
-      label: 'Feature Display Component'
     }
   ]
 }
