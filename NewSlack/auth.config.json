@@ -12,7 +12,7 @@
   "config": {
     "accessType": "offline",
     "callbackURL": "https://int.staging.bearer.sh/v1/auth/callback",
-    "scope": ["reminders:write", "channels:read", "groups:read", "users:read"]
+    "scope": ["channels:read", "channels:write"]
   },
   "setupViews": [
     { "label": "Client ID", "type": "text", "controlName": "clientID" },
