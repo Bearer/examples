@@ -11,16 +11,9 @@ export default class SaveChannelIntent {
     state: any,
     callback: TSaveStateCallback
   ): void {
-
     callback({
-      state: {
-        ...state,
-        id: body.channel.id
-      },
-      data: {
-        channel: body.channel
-      }
+      state: { ...state, id: body.channel.id },
+      data: { channel: body.channel }
     })
   }
-
 }
