@@ -1,4 +1,4 @@
-import Bearer, { RootComponent, Prop, Events, Intent, BearerFetch, State } from '@bearer/core'
+import Bearer, { RootComponent, Prop, Events, Event, EventEmitter, Intent, BearerFetch, State } from '@bearer/core'
 import '@bearer/ui'
 
 @RootComponent({
@@ -22,6 +22,8 @@ export class FeatureAction {
   error: boolean = false
   @State()
   shared: boolean = false
+  @Event()
+  propSet: EventEmitter
 
   componentDidLoad() {
     Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
@@ -35,7 +37,7 @@ export class FeatureAction {
   }
 
   notify = params => {
-    Bearer.emitter.emit(`bearer:PropSet`, params)
+    this.propSet.emit(params)
   }
 
   perform = () => {
