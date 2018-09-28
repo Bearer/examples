@@ -29,13 +29,6 @@ export default {
       label: 'Channel Action Component'
     },
     {
-      classname: 'ChannelDisplay',
-      isRoot: true,
-      initialTagName: 'channel-display',
-      group: 'channel',
-      label: 'Channel Display Component'
-    },
-    {
       classname: 'FeatureAction',
       isRoot: true,
       initialTagName: 'feature-action',

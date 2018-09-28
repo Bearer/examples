@@ -1,4 +1,4 @@
-import Bearer, { RootComponent, Prop, Events, Intent, BearerFetch, State } from '@bearer/core'
+import Bearer, { RootComponent, Prop, Events, Event, EventEmitter, Intent, BearerFetch, State } from '@bearer/core'
 import '@bearer/ui'
 
 @RootComponent({
@@ -22,14 +22,22 @@ export class FeatureAction {
   error: boolean = false
   @State()
   shared: boolean = false
+  @Event()
+  propSet: EventEmitter
 
   componentDidLoad() {
     Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
       this.channelId = data.detail.referenceId
+      this.notify({name: 'channelId', value: this.channelId})
     })
     Bearer.emitter.addListener(Events.AUTHORIZED, data => {
       this.authIdentifier = data.scenarioId.data.authIdentifier
+      this.notify({name: 'authIdentifier', value: this.authIdentifier})
     })
+  }
+
+  notify = params => {
+    this.propSet.emit(params)
   }
 
   perform = () => {
