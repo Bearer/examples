@@ -1,8 +1,3 @@
-/*
-  The purpose of this component is to deal with scenario navigation between each views.
-
-*/
-
 import Bearer, { RootComponent, Prop, Events, Intent, BearerFetch, State } from '@bearer/core'
 import '@bearer/ui'
 
@@ -24,6 +19,8 @@ export class FeatureAction {
   @State()
   loading: boolean = false
   @State()
+  error: boolean = false
+  @State()
   shared: boolean = false
 
   componentDidLoad() {
@@ -40,12 +37,11 @@ export class FeatureAction {
       return
     }
     this.loading = true
+    this.error = false
     this.fetcher({
       authIdentifier: this.authIdentifier,
       channelId: this.channelId,
-      body: {
-        message: this.message
-      }
+      body: { message: this.message }
     })
       .then(({ data }) => {
         if (data.ok) {
@@ -54,6 +50,7 @@ export class FeatureAction {
       })
       .catch(e => {
         console.error('[BEARER]', 'Error', e)
+        this.error = true
       })
       .then(() => {
         this.loading = false
@@ -61,16 +58,14 @@ export class FeatureAction {
   }
 
   render() {
+    const kind = this.shared ? 'success' : this.error ? 'danger' : 'primary'
     return (
-      <bearer-button onClick={this.perform} kind={this.shared ? 'success' : 'primary'}>
-        <span class="text">{this.text}</span>
-        <span class={this.shared ? 'check shared' : 'check'} />
+      <bearer-button onClick={this.perform} kind={kind}>
+        <div class="root">
+          <span class="text">{this.text}</span>
+          <status-icon visible={this.error || this.shared} kind={this.shared ? 'success' : 'error'} />
+        </div>
       </bearer-button>
-      // <bearer-navigator btnProps={{ content: 'Share', kind: 'primary' }} direction="right">
-      //   <bearer-navigator-screen name="channel" navigationTitle="Share">
-      //     <share-slack authIdentifier={this.authIdentifier} channelId={this.channelId} />
-      //   </bearer-navigator-screen>
-      // </bearer-navigator>
     )
   }
 }
