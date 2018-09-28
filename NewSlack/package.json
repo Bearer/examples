@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "NewSlack",
   "main": "dist/index.js",
-  "types": "dist/types/components.d.ts",
+  "types": ".bearer/views/dist/types/components.d.ts",
   "module": "dist/esm/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "scripts": {
@@ -15,13 +15,13 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@bearer/core": "^0.62.0",
-    "@bearer/intents": "^0.62.0",
-    "@bearer/ui": "^0.62.0",
+    "@bearer/core": "^0.64.0",
+    "@bearer/intents": "^0.64.0",
+    "@bearer/ui": "^0.64.0",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/cli": "^0.62.0",
+    "@bearer/cli": "^0.64.0",
     "@types/jest": "latest",
     "@types/node": "^10.11.0",
     "jest": "latest"
