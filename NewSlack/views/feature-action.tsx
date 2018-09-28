@@ -28,11 +28,11 @@ export class FeatureAction {
   componentDidLoad() {
     Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
       this.channelId = data.detail.referenceId
-      this.notify({name: 'channelId', value: this.channelId})
+      this.notify({ name: 'channelId', value: this.channelId })
     })
-    Bearer.emitter.addListener(Events.AUTHORIZED, data => {
-      this.authIdentifier = data.scenarioId.data.authIdentifier
-      this.notify({name: 'authIdentifier', value: this.authIdentifier})
+    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
+      this.authIdentifier = data.authIdentifier
+      this.notify({ name: 'authIdentifier', value: this.authIdentifier })
     })
   }
 

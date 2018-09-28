@@ -15,8 +15,8 @@ export class ConnectDisplay {
   authIdentifier: string
 
   componentDidLoad() {
-    Bearer.emitter.addListener(Events.AUTHORIZED, data => {
-      this.authIdentifier = data.scenarioId.data.authIdentifier
+    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
+      this.authIdentifier = data.authIdentifier
     })
   }
 

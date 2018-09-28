@@ -121,6 +121,13 @@
     rollup-plugin-replace "^2.0.0"
     typescript "^2.9.2"
 
+"@bearer/intents@^0.62.0":
+  version "0.62.0"
+  resolved "https://registry.npmjs.org/@bearer/intents/-/intents-0.62.0.tgz#b1be29eff331588dd07c6e32e620d02d3f431294"
+  dependencies:
+    axios "^0.18.0"
+    typescript "^2.9.2"
+
 "@bearer/intents@^0.64.0":
   version "0.64.0"
   resolved "https://registry.npmjs.org/@bearer/intents/-/intents-0.64.0.tgz#9e7b2d5761aa4dd7a5106545482025d9f8180e6b"
