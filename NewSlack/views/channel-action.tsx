@@ -3,7 +3,7 @@
 
 */
 
-import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch } from '@bearer/core'
+import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch, Watch } from '@bearer/core'
 import '@bearer/ui'
 import { TChannel } from './types'
 
@@ -42,15 +42,6 @@ export class ChannelAction {
     this.el.addEventListener('bearer:StateSaved', e => {
       Bearer.emitter.emit(`bearer:StateSaved:${this.SCENARIO_ID}`, e)
     })
-    this.fetchingChannels = true
-    this.listChannel()
-      .then(({ data }) => {
-        this.suggestions = this.channels = data
-      })
-      .catch(console.error)
-      .then(() => {
-        this.fetchingChannels = false
-      })
   }
 
   attachChannel = (channel: TChannel): void => {
@@ -97,6 +88,20 @@ export class ChannelAction {
     }
   }
 
+  onInputFocused = () => {
+    if (!Boolean(this.suggestions.length)) {
+      this.fetchingChannels = true
+      this.listChannel()
+        .then(({ data }) => {
+          this.suggestions = this.channels = data
+        })
+        .catch(console.error)
+        .then(() => {
+          this.fetchingChannels = false
+        })
+    }
+  }
+
   filter = event => {
     this.input = event.target.value
     this.suggestions = [...this.channels.filter(c => fuzzysearch(this.input, c.name))]
@@ -117,27 +122,29 @@ export class ChannelAction {
               placeholder="Search for a channel"
               onInput={this.filter}
               value={this.input}
+              onFocus={this.onInputFocused}
               onKeyDown={this.onKeyPress}
             />
             {this.fetchingChannels && <bearer-loading />}
           </div>
-          {!this.fetchingChannels && (
-            <ul>
-              {this.suggestions.map((c, index) => (
-                <li
-                  class={this.selected === index ? 'selected' : ''}
-                  onClick={() => {
-                    this.attachChannel(c)
-                  }}
-                  onMouseEnter={this.onFocus(index)}
-                >
-                  {c.is_private ? <channel-lock /> : '#'}
-                  {c.name}
-                  <button onFocus={this.onFocus(index)}>Select</button>
-                </li>
-              ))}
-            </ul>
-          )}
+          {!this.fetchingChannels &&
+            Boolean(this.suggestions.length) && (
+              <ul>
+                {this.suggestions.map((c, index) => (
+                  <li
+                    class={this.selected === index ? 'selected' : ''}
+                    onClick={() => {
+                      this.attachChannel(c)
+                    }}
+                    onMouseEnter={this.onFocus(index)}
+                  >
+                    {c.is_private ? <channel-lock /> : '#'}
+                    {c.name}
+                    <button onFocus={this.onFocus(index)}>Select</button>
+                  </li>
+                ))}
+              </ul>
+            )}
         </div>
       )
     }
