@@ -3,7 +3,7 @@
 
 */
 
-import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch, Watch } from '@bearer/core'
+import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch } from '@bearer/core'
 import '@bearer/ui'
 import { TChannel } from './types'
 
