@@ -8,7 +8,7 @@ export default class ListChannelIntent {
 
   static action(context: TOAUTH2AuthContext, params: any, body: any, callback: TFetchDataCallback) {
     Client(context.authAccess.accessToken)
-      .get('conversations.list', { params: { type: 'public_channel,private_channel' } })
+      .get('conversations.list', { params: { types: 'public_channel,private_channel' } })
       .then(response => {
         if (response.data.ok) {
           callback({
