@@ -5,12 +5,7 @@
 
 import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch } from '@bearer/core'
 import '@bearer/ui'
-
-type TChannel = {
-  id: string
-  name: string
-  is_private: boolean
-}
+import { TChannel } from './types'
 
 @RootComponent({
   role: 'action',
@@ -110,15 +105,7 @@ export class ChannelAction {
 
   render() {
     if (this.channel && !this.editMode) {
-      return (
-        <div>
-          {this.channel.is_private ? <channel-lock /> : '#'}
-          {this.channel.name}{' '}
-          <button class="btn-edit" onClick={this.toggleEdit}>
-            (Edit)
-          </button>
-        </div>
-      )
+      return <selected-channel channel={this.channel} onEditClick={this.toggleEdit} />
     } else {
       return (
         <div class="channel-root">

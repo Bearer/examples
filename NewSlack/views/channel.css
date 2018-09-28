@@ -1,4 +1,5 @@
 /* Channels */
+
 .channel-root {
   position: relative;
 }
@@ -13,23 +14,24 @@
   padding: 5px 10px;
 }
 
-.channel-root ul > li {
+.channel-root ul>li {
   padding: 6px 6px;
   margin: 0;
   list-style-type: none;
   border-radius: 6px;
   cursor: pointer;
 }
-.channel-root ul > li.selected {
+
+.channel-root ul>li.selected {
   background: #f8f9ff;
 }
 
-.channel-root ul > li > button {
+.channel-root ul>li>button {
   opacity: 0;
   margin-left: 10px;
 }
 
-.channel-root ul > li > button:focus {
+.channel-root ul>li>button:focus {
   opacity: 1;
 }
 
@@ -75,13 +77,6 @@
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-}
-
-.btn-edit {
-  background: none;
-  border: none;
-  color: #5f7df6;
-  padding: 0 2px;
 }
 
 channel-lock {
