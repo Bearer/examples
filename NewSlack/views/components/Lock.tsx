@@ -3,7 +3,7 @@ import { Component } from '@bearer/core'
 @Component({
   tag: 'channel-lock',
   styleUrl: 'Lock.css',
-  shadow: true
+  shadow: false
 })
 export class Lock {
   render() {
