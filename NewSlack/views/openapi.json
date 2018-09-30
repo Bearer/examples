@@ -1,12 +1,12 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "This is an auto generated swagger definition file for Github Attach Pull Request Scenario",
+    "description": "This is an auto generated swagger definition file for Slack Scenario",
     "version": "0.0.3",
-    "title": "Github Attach Pull Request",
+    "title": "Slack Scenario",
     "termsOfService": "https://bearer.sh/terms",
     "contact": {
-      "email": "alice@vendor.com"
+      "email": "yc@bearer.sh"
     },
     "license": {
       "name": "MIT"
@@ -20,7 +20,7 @@
   "tags": [
     {
       "name": "integration",
-      "description": "List of endpoints providing backend to backend integration with github attach pull request scenario",
+      "description": "List of endpoints providing backend to backend integration with slack scenario",
       "externalDocs": {
         "description": "Find out more",
         "url": "https://www.bearer.sh"
@@ -28,545 +28,76 @@
     }
   ],
   "paths": {
-    "/items": {
-      "options": {
+    "/backend/api/v1/84a868-slack-share-back-to-back/ListChannel": {
+      "get": {
         "responses": {
           "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "UNAUTHORIZED"
-          }
-        },
-        "summary": "Items",
-        "description": "",
-        "parameters": [
-          {
-            "name": "clientId",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Item"
-              }
-            }
+            "description": "List Channel"
           }
         },
         "parameters": [
           {
-            "name": "origin",
+            "name": "authorization",
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "description": "",
+            "description": "API Key",
             "required": true
           },
           {
-            "name": "accept-encoding",
-            "in": "header",
+            "name": "authIdentifier",
             "schema": {
-              "type": "string"
-            },
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-language",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "user-agent",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "content-type",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "referer",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "authority",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "cookie",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "clientId",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "in": "query",
-            "description": "",
+            "description": "User Identifier",
             "required": true
           }
         ],
-        "responses": {
-          "200": {
-            "description": "CREATED"
-          }
-        },
-        "summary": "Create item",
-        "description": ""
+        "summary": "List Channel"
       }
     },
-    "/10bc62-my-new-scenario/listRepositories": {
-      "post": {
+    "/backend/api/v1/84a868-slack-share-back-to-back/Share": {
+      "get": {
         "responses": {
           "200": {
-            "description": "Intent response"
+            "description": "Share"
           }
         },
         "parameters": [
           {
-            "name": "origin",
+            "name": "authorization",
             "schema": {
               "type": "string"
             },
             "in": "header",
-            "description": "",
+            "description": "API Key",
             "required": true
           },
           {
-            "name": "accept-encoding",
+            "name": "authIdentifier",
             "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-language",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "user-agent",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "content-type",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "referer",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "authority",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "cookie",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "page",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "in": "query",
-            "description": "",
+            "description": "User Identifier",
             "required": true
           },
           {
-            "name": "setupId",
+            "name": "channelId",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             },
             "in": "query",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "clientId",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
+            "description": "Channel UUID",
             "required": true
           }
         ],
-        "summary": "listRepositories"
-      }
-    },
-    "/10bc62-my-new-scenario/listPullRequests": {
-      "post": {
-        "responses": {
-          "200": {
-            "description": "Intent response"
-          }
-        },
-        "summary": "listRepositories",
-        "description": "",
-        "parameters": [
-          {
-            "name": "origin",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-encoding",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-language",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "user-agent",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "content-type",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "referer",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "authority",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "cookie",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "page",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "fullName",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "setupId",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "clientId",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          }
-        ]
-      }
-    },
-    "/10bc62-my-new-scenario/savePullRequest": {
-      "post": {
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "pullRequest": {
-                    "type": "object",
-                    "properties": {
-                      "number": {
-                        "type": "integer"
-                      }
-                    }
-                  },
-                  "repository": {
-                    "type": "object",
-                    "properties": {
-                      "full_name": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Intent response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "meta": {
-                      "type": "object",
-                      "properties": {
-                        "referenceId": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "summary": "savePullRequest",
-        "description": "",
-        "parameters": [
-          {
-            "name": "origin",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-encoding",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept-language",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "user-agent",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "content-type",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "accept",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "referer",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "authority",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "cookie",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "setupId",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          },
-          {
-            "name": "clientId",
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "",
-            "required": true
-          }
-        ]
+        "summary": "Share message on specified channel"
       }
     }
   },
