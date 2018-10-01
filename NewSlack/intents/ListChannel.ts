@@ -12,7 +12,9 @@ export default class ListChannelIntent {
       .then(response => {
         if (response.data.ok) {
           callback({
-            data: response.data.channels.map(({ id, name, is_private }) => ({ id, name, is_private }))
+            data: response.data.channels
+              .filter(({ is_archived }) => !is_archived)
+              .map(({ id, name, is_private }) => ({ id, name, is_private }))
           })
         } else {
           callback({ error: `Error while fetching users ${JSON.stringify(response.data)}` })

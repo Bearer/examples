@@ -19,6 +19,7 @@ export default class ShareIntent {
         .post(`chat.postMessage`, {
           channel: channel.id,
           text: body.message,
+          as_user: false,
           parse: 'full'
         })
         .then(({ data }) => {
