@@ -1,10 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "This is an auto generated swagger definition file for Slack Scenario",
-    "version": "0.0.3",
+    "description": "Openapi definition file for Slack Scenario",
+    "version": "0.0.4",
     "title": "Slack Scenario",
-    "termsOfService": "https://bearer.sh/terms",
     "contact": {
       "email": "yc@bearer.sh"
     },
@@ -28,37 +27,6 @@
     }
   ],
   "paths": {
-    "/backend/api/v1/84a868-slack-share-back-to-back/ListChannel": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "List Channel"
-          }
-        },
-        "parameters": [
-          {
-            "name": "authorization",
-            "schema": {
-              "type": "string"
-            },
-            "in": "header",
-            "description": "API Key",
-            "required": true
-          },
-          {
-            "name": "authIdentifier",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "in": "query",
-            "description": "User Identifier",
-            "required": true
-          }
-        ],
-        "summary": "List Channel"
-      }
-    },
     "/backend/api/v1/84a868-slack-share-back-to-back/Share": {
       "get": {
         "responses": {
