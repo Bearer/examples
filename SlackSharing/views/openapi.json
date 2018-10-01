@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Openapi definition file for Slack Scenario",
+    "description": "openapi definition file for Slack Scenario",
     "version": "0.0.4",
     "title": "Slack Scenario",
     "contact": {
@@ -13,7 +13,7 @@
   },
   "servers": [
     {
-      "url": "https://int.bearer.sh/api/v2"
+      "url": "https://int.bearer.sh/backend/api/v1"
     }
   ],
   "tags": [
@@ -27,11 +27,86 @@
     }
   ],
   "paths": {
-    "/backend/api/v1/84a868-slack-share-back-to-back/Share": {
+    "/84a868-slack-share-back-to-back/Share": {
       "get": {
         "responses": {
+          "401": {
+            "description": "Access forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "200": {
-            "description": "Share"
+            "description": "Share",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "ok": {
+                          "type": "boolean"
+                        },
+                        "channel": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "number"
+                        },
+                        "message": {
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -73,9 +148,7 @@
     "schemas": {
       "Item": {
         "type": "object",
-        "required": [
-          "ReadAllowed"
-        ],
+        "required": ["ReadAllowed"],
         "properties": {
           "clientID": {
             "type": "string"
