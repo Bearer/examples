@@ -1,4 +1,4 @@
-import { FetchData, Toauth2Context, TFetchDataCallback } from '@bearer/intents'
+import { FetchData, TOAUTH2AuthContext, TFetchDataCallback } from '@bearer/intents'
 // Uncomment this line if you need to use Client
 import Client from './client'
 // temporary
@@ -14,7 +14,7 @@ export default class CreateReminderIntent {
   static intentName: string = 'CreateReminder'
   static intentType: any = FetchData
 
-  static action(context: Toauth2Context, params: any, body: TBody, callback: TFetchDataCallback) {
+  static action(context: TOAUTH2AuthContext, params: any, body: TBody, callback: TFetchDataCallback) {
     const { what, who = ME, when } = body
     Client(context.authAccess.accessToken)
       .post('reminders.add', {

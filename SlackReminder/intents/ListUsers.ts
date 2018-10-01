@@ -1,11 +1,11 @@
-import { FetchData, Toauth2Context, TFetchDataCallback } from '@bearer/intents'
+import { FetchData, TOAUTH2AuthContext, TFetchDataCallback } from '@bearer/intents'
 import Client from './client'
 
 export default class ListUsersIntent {
   static intentName: string = 'ListUsers'
   static intentType: any = FetchData
 
-  static action(context: Toauth2Context, _params: any, _body: any, callback: TFetchDataCallback) {
+  static action(context: TOAUTH2AuthContext, _params: any, _body: any, callback: TFetchDataCallback) {
     Client(context.authAccess.accessToken)
       .get('users.list')
       .then(response => {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default function(token: string) {
+export default function (token: string) {
   const headers = {
     Accept: 'application/json',
     'User-Agent': 'Bearer',

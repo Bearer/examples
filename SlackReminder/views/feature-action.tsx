@@ -101,28 +101,28 @@ export class FeatureAction {
         )}
       />
     ) : (
-      <bearer-navigator btnProps={btnProps} complete={this.complete}>
-        <bearer-navigator-auth-screen />
-        {!this.who && (
-          <bearer-navigator-screen navigationTitle="Who to remind?" name="who">
-            <who-selector />
-          </bearer-navigator-screen>
-        )}
-        {!this.what && (
-          <bearer-navigator-screen
-            navigationTitle="What to remind?"
-            renderFunc={({ next }) => <what-selector next={next} />}
-            name="what"
-          />
-        )}
-        {!this.when && (
-          <bearer-navigator-screen
-            navigationTitle="When to remind?"
-            renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
-            name="when"
-          />
-        )}
-      </bearer-navigator>
-    )
+        <bearer-navigator btnProps={btnProps} complete={this.complete}>
+          <bearer-navigator-auth-screen />
+          {!this.who && (
+            <bearer-navigator-screen navigationTitle="Who to remind?" name="who">
+              <who-selector />
+            </bearer-navigator-screen>
+          )}
+          {!this.what && (
+            <bearer-navigator-screen
+              navigationTitle="What to remind?"
+              renderFunc={({ next }) => <what-selector next={next} />}
+              name="what"
+            />
+          )}
+          {!this.when && (
+            <bearer-navigator-screen
+              navigationTitle="When to remind?"
+              renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
+              name="when"
+            />
+          )}
+        </bearer-navigator>
+      )
   }
 }

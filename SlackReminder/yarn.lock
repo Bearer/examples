@@ -16,14 +16,14 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@bearer/bearer-cli@^0.60.2":
-  version "0.60.2"
-  resolved "https://registry.yarnpkg.com/@bearer/bearer-cli/-/bearer-cli-0.60.2.tgz#32028908470197ec0e9ff4d19b022f5488d40f23"
+"@bearer/bearer-cli@^0.60.12":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/bearer-cli/-/bearer-cli-0.60.12.tgz#ee7b52b807fe314be8721aecbd6ebac318bf59b5"
   dependencies:
-    "@bearer/intents" "^0.60.0"
-    "@bearer/templates" "^0.60.0"
-    "@bearer/transpiler" "^0.60.0"
-    "@bearer/types" "^0.60.0"
+    "@bearer/intents" "^0.60.12"
+    "@bearer/templates" "^0.60.12"
+    "@bearer/transpiler" "^0.60.12"
+    "@bearer/types" "^0.60.12"
     "@koa/cors" "^2.2.2"
     amazon-cognito-identity-js "^2.0.3"
     archiver "^2.1.1"
@@ -70,15 +70,15 @@
     uuid "^3.3.2"
     webpack "^4.12.0"
 
-"@bearer/cli@next":
-  version "0.60.2"
-  resolved "https://registry.yarnpkg.com/@bearer/cli/-/cli-0.60.2.tgz#6c3e8bb37e3618e82662e6b6bc2b1bf4590b5e0d"
+"@bearer/cli@beta2":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/cli/-/cli-0.60.12.tgz#99fd462b1d093823af756a64878f9e069d40acfc"
   dependencies:
-    "@bearer/bearer-cli" "^0.60.2"
-    "@bearer/intents" "^0.60.0"
-    "@bearer/templates" "^0.60.0"
-    "@bearer/transpiler" "^0.60.0"
-    "@bearer/types" "^0.60.0"
+    "@bearer/bearer-cli" "^0.60.12"
+    "@bearer/intents" "^0.60.12"
+    "@bearer/templates" "^0.60.12"
+    "@bearer/transpiler" "^0.60.12"
+    "@bearer/types" "^0.60.12"
     "@oclif/command" "^1"
     "@oclif/config" "^1"
     "@oclif/plugin-autocomplete" "^0.1.0"
@@ -104,12 +104,13 @@
     os "^0.1.1"
     path "^0.12.7"
     rc "^1.2.8"
+    sqlite3 "^4.0.2"
     tslib "^1"
     webpack "^4.17.1"
 
-"@bearer/core@^0.60.0", "@bearer/core@next":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.60.0.tgz#e2bc08d42ce1894081ff4e4a58df4e0727929a8b"
+"@bearer/core@^0.60.12", "@bearer/core@beta2":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.60.12.tgz#94f0353ca1beff14e7c408dbee045f562fe9ee59"
   dependencies:
     "@stencil/core" "0.11.2"
     babel-plugin-inline-dotenv "^1.1.2"
@@ -120,23 +121,23 @@
     rollup-plugin-replace "^2.0.0"
     typescript "^2.9.2"
 
-"@bearer/intents@^0.60.0", "@bearer/intents@next":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.60.0.tgz#f8cd00b82603e8a2940ad8f6246ed5c624a30566"
+"@bearer/intents@^0.60.12", "@bearer/intents@beta2":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.60.12.tgz#28326ec2249f118100360dc1a2ee64535168bb7b"
   dependencies:
     axios "^0.18.0"
     typescript "^2.9.2"
 
-"@bearer/templates@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/templates/-/templates-0.60.0.tgz#2e7047481148086853397057f53291b0066538fb"
+"@bearer/templates@^0.60.12":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/templates/-/templates-0.60.12.tgz#3ee84e618ebc68d7a0be17ec7901c7e2665af569"
   dependencies:
-    "@bearer/types" "^0.60.0"
+    "@bearer/types" "^0.60.12"
     typescript "^2.9.2"
 
-"@bearer/transpiler@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/transpiler/-/transpiler-0.60.0.tgz#e7af2b618dd2d9036f3d706d84f03e9f93224557"
+"@bearer/transpiler@^0.60.12":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/transpiler/-/transpiler-0.60.12.tgz#4932c66c5d6b11746e87668f71388dd14ec54ebc"
   dependencies:
     async-foreach "^0.1.3"
     case "^1.5.5"
@@ -144,15 +145,15 @@
     fs-extra "^6.0.1"
     typescript "^2.9.2"
 
-"@bearer/types@^0.60.0":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/types/-/types-0.60.0.tgz#c8abb51ec1dc0ace208abdbafcb853945a19e780"
+"@bearer/types@^0.60.12":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/types/-/types-0.60.12.tgz#5f7fdfb0a7d6a0fbff000b775155a9ac00967c2c"
 
-"@bearer/ui@next":
-  version "0.60.0"
-  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.60.0.tgz#df028533063989ca3e34f540369262bd6f4dd8fa"
+"@bearer/ui@beta2":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.60.12.tgz#a3f58485da3b8c7047eb2cd8cae69141d6e603f4"
   dependencies:
-    "@bearer/core" "^0.60.0"
+    "@bearer/core" "^0.60.12"
     "@stencil/core" "0.11.2"
     "@stencil/sass" "^0.1.0"
     bootstrap "^4.1.0"
