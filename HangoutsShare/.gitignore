@@ -4,3 +4,5 @@ dist/
 www/
 .build/
 config.dev.js
+yarn-error.log
+yarn.lock
