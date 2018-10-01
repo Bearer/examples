@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Openapi definition file for Slack Scenario",
+    "version": "0.0.4",
+    "title": "Slack Scenario",
+    "contact": {
+      "email": "yc@bearer.sh"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://int.bearer.sh/api/v2"
+    }
+  ],
+  "tags": [
+    {
+      "name": "integration",
+      "description": "List of endpoints providing backend to backend integration with slack scenario",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://www.bearer.sh"
+      }
+    }
+  ],
+  "paths": {
+    "/backend/api/v1/84a868-slack-share-back-to-back/Share": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Share"
+          }
+        },
+        "parameters": [
+          {
+            "name": "authorization",
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "description": "API Key",
+            "required": true
+          },
+          {
+            "name": "authIdentifier",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "query",
+            "description": "User Identifier",
+            "required": true
+          },
+          {
+            "name": "channelId",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "query",
+            "description": "Channel UUID",
+            "required": true
+          }
+        ],
+        "summary": "Share message on specified channel"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Item": {
+        "type": "object",
+        "required": [
+          "ReadAllowed"
+        ],
+        "properties": {
+          "clientID": {
+            "type": "string"
+          },
+          "clientSecret": {
+            "type": "string"
+          },
+          "ReadAllowed": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}
