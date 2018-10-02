@@ -23,7 +23,8 @@ export default class CreateReminderIntent {
         user: who === ME ? null : who
       })
       .then(response => {
-        console.log('[BEARER]', 'response', response)
+        console.log('response status', response.status)
+        console.log('response data', JSON.stringify(response.data))
         callback({
           data: response.data
         })
