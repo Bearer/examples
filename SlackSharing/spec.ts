@@ -53,13 +53,18 @@ export default {
       group: 'channel',
       label: 'Channel Action Component',
       input: {
+        authId: {
+          schema: {
+            type: "string",
+            format: "uuid"
+          }
+        },
         setupId: {
           schema: {
             type: "string",
             format: "uuid"
           }
         }
-
       },
       output: {
         channelId: {

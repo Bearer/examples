@@ -3,7 +3,7 @@
 
 */
 
-import Bearer, { Element, RootComponent, Intent, IntentType, State, BearerFetch } from '@bearer/core'
+import Bearer, { Prop, Events, Element, RootComponent, Intent, IntentType, State, BearerFetch, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
 import { TChannel } from './types'
 
@@ -16,6 +16,9 @@ export class ChannelAction {
   saveChannel: BearerFetch
   @Intent('ListChannel')
   listChannel: BearerFetch
+
+  @Prop({ mutable: true })
+  authId: string
 
   @State()
   channel: TChannel
@@ -38,16 +41,27 @@ export class ChannelAction {
   @Element()
   el: HTMLElement
 
+  @Event()
+  propSet: EventEmitter
+
   componentDidLoad() {
     this.el.addEventListener('bearer:StateSaved', e => {
       Bearer.emitter.emit(`bearer:StateSaved:${this.SCENARIO_ID}`, e)
     })
+    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
+      this.authId = data.authId
+      this.notify({ name: 'authId', value: this.authId })
+    })
+  }
+
+  notify = params => {
+    this.propSet.emit(params)
   }
 
   attachChannel = (channel: TChannel): void => {
     this.editMode = false
     this.channel = channel
-    this.saveChannel({ body: { channel } })
+    this.saveChannel({ authId: this.authId, body: { channel } })
       .then(() => {})
       .catch(error => {
         throw error
