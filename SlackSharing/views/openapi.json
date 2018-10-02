@@ -120,7 +120,7 @@
             "required": true
           },
           {
-            "name": "authIdentifier",
+            "name": "authId",
             "schema": {
               "type": "string",
               "format": "uuid"

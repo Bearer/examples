@@ -9,7 +9,7 @@ export class FeatureAction {
   @Intent('Share')
   fetcher: BearerFetch
   @Prop({ mutable: true })
-  authIdentifier: string
+  authId: string
   @Prop({ mutable: true })
   channelId: string
   @Prop()
@@ -31,8 +31,8 @@ export class FeatureAction {
       this.notify({ name: 'channelId', value: this.channelId })
     })
     Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
-      this.authIdentifier = data.authIdentifier
-      this.notify({ name: 'authIdentifier', value: this.authIdentifier })
+      this.authId = data.authId
+      this.notify({ name: 'authId', value: this.authId })
     })
   }
 
@@ -47,7 +47,7 @@ export class FeatureAction {
     this.loading = true
     this.error = false
     this.fetcher({
-      authIdentifier: this.authIdentifier,
+      authId: this.authId,
       channelId: this.channelId,
       body: { message: this.message }
     })

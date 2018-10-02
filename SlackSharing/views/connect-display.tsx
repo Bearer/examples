@@ -12,11 +12,11 @@ import '@bearer/ui'
 })
 export class ConnectDisplay {
   @State()
-  authIdentifier: string
+  authId: string
 
   componentDidLoad() {
     Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
-      this.authIdentifier = data.authIdentifier
+      this.authId = data.authId
     })
   }
 
@@ -24,7 +24,7 @@ export class ConnectDisplay {
     return (
       <p>
         User authenticated with User ID:
-        <bearer-badge>{this.authIdentifier ? this.authIdentifier : 'Not Set'}</bearer-badge>
+        <bearer-badge>{this.authId ? this.authId : 'Not Set'}</bearer-badge>
       </p>
     )
   }
