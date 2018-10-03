@@ -1,9 +1,9 @@
 {
-  "name": "new-slack",
+  "name": "hangouts-sharing",
   "version": "0.0.1",
-  "description": "NewSlack",
+  "description": "HangoutsSharing",
   "main": "dist/index.js",
-  "types": ".bearer/views/dist/types/components.d.ts",
+  "types": "dist/types/components.d.ts",
   "module": "dist/esm/index.js",
   "collection": "dist/collection/collection-manifest.json",
   "scripts": {
@@ -15,15 +15,15 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@bearer/core": "^0.64.1",
-    "@bearer/intents": "^0.62.0",
-    "@bearer/ui": "^0.64.1",
+    "@bearer/core": "beta2",
+    "@bearer/intents": "beta2",
+    "@bearer/ui": "beta2",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/cli": "^0.64.1",
+    "@bearer/cli": "beta2",
     "@types/jest": "latest",
-    "@types/node": "^10.11.0",
+    "@types/node": "latest",
     "jest": "latest"
   },
   "license": "MIT",
