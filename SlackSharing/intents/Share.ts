@@ -1,11 +1,18 @@
 import { FetchData, TOAUTH2AuthContext, TFetchDataCallback } from '@bearer/intents'
 import Client from './client'
 
+type TShareParams = {
+  channelId: string
+  authId: string
+}
+
 export default class ShareIntent {
   static intentName: string = 'Share'
   static intentType: any = FetchData
 
-  static action(context: TOAUTH2AuthContext, params: any, body: any, callback: TFetchDataCallback) {
+  static action(context: TOAUTH2AuthContext, params: TShareParams, body: any, callback: TFetchDataCallback) {
+    console.log(context)
+    console.log(params)
     const channel = context.channel || body.channel
     try {
       if (!channel) {
