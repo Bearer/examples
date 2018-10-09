@@ -3,3 +3,5 @@ export type TChannel = {
   name: string
   is_private: boolean
 }
+
+export type TSavedChannelPayload = { channelId: string; channel: TChannel }

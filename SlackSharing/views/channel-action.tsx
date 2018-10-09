@@ -3,9 +3,20 @@
 
 */
 
-import Bearer, { Prop, Events, Element, RootComponent, Intent, IntentType, State, BearerFetch, Event, EventEmitter } from '@bearer/core'
+import Bearer, {
+  Prop,
+  Events,
+  Element,
+  RootComponent,
+  Intent,
+  IntentType,
+  State,
+  BearerFetch,
+  Event,
+  EventEmitter
+} from '@bearer/core'
 import '@bearer/ui'
-import { TChannel } from './types'
+import { TChannel, TSavedChannelPayload } from './types'
 
 @RootComponent({
   role: 'action',
@@ -44,10 +55,10 @@ export class ChannelAction {
   @Event()
   propSet: EventEmitter
 
+  @Event()
+  saved: EventEmitter<TSavedChannelPayload>
+
   componentDidLoad() {
-    this.el.addEventListener('bearer:StateSaved', e => {
-      Bearer.emitter.emit(`bearer:StateSaved:${this.SCENARIO_ID}`, e)
-    })
     Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
       this.authId = data.authId
       this.notify({ name: 'authId', value: this.authId })
@@ -62,7 +73,9 @@ export class ChannelAction {
     this.editMode = false
     this.channel = channel
     this.saveChannel({ authId: this.authId, body: { channel } })
-      .then(() => {})
+      .then(({ data: { channel, referenceId: channelId } }) => {
+        this.saved.emit({ channelId, channel })
+      })
       .catch(error => {
         throw error
       })

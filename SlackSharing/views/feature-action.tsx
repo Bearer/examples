@@ -1,6 +1,16 @@
-import Bearer, { RootComponent, Prop, Events, Event, EventEmitter, Intent, BearerFetch, State } from '@bearer/core'
+import Bearer, {
+  RootComponent,
+  Prop,
+  Events,
+  Event,
+  EventEmitter,
+  Intent,
+  BearerFetch,
+  State,
+  Listen
+} from '@bearer/core'
 import '@bearer/ui'
-
+import { TSavedChannelPayload } from './types'
 @RootComponent({
   role: 'action',
   group: 'feature'
@@ -25,11 +35,14 @@ export class FeatureAction {
   @Event()
   propSet: EventEmitter
 
+  @Listen('body:channel:saved')
+  savedChannelHandler(event: { detail: TSavedChannelPayload }) {
+    this.channelId = event.detail.channelId
+    // dev portal specific code
+    this.notify({ name: 'channelId', value: this.channelId })
+  }
+
   componentDidLoad() {
-    Bearer.emitter.addListener(`bearer:StateSaved:${this.SCENARIO_ID}`, data => {
-      this.channelId = data.detail.referenceId
-      this.notify({ name: 'channelId', value: this.channelId })
-    })
     Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
       this.authId = data.authId
       this.notify({ name: 'authId', value: this.authId })
