@@ -71,7 +71,7 @@ export class FeatureAction {
       .catch(console.error)
 
   get buttonText(): any {
-    return this.text || 'Remind me'
+    return this.text || 'Set a reminder'
   }
 
   get dateChoicesData(): Array<{ value: string; text: string }> {
@@ -88,41 +88,49 @@ export class FeatureAction {
 
   render() {
     const multipleScreens = !this.who || !this.when || !this.what
+    const content = (
+      <div>
+        <status-icon visible={false}  />
+        {this.buttonText}
+        <status-icon visible={this.reminded} kind="success" />
+      </div>
+    )
+
     const btnProps: JSXElements.BearerButtonAttributes = {
       kind: this.reminded ? 'success' : 'primary',
-      content: this.buttonText,
+      content: content,
       disabled: this.loading || false
     }
     return !multipleScreens ? (
       <bearer-authorized
-        renderAuthorized={() => <bearer-button onClick={this.remindMe} {...btnProps} content={this.text} />}
+        renderAuthorized={() => <bearer-button onClick={this.remindMe} {...btnProps} />}
         renderUnauthorized={({ authenticate }) => (
-          <bearer-button onClick={() => authenticate().then(() => this.remindMe())} {...btnProps} content={this.text} />
+          <bearer-button onClick={() => authenticate().then(() => this.remindMe())} {...btnProps} />
         )}
       />
     ) : (
-      <bearer-navigator btnProps={btnProps} complete={this.complete}>
-        <bearer-navigator-auth-screen />
-        {!this.who && (
-          <bearer-navigator-screen navigationTitle="Who to remind?" name="who">
-            <who-selector />
-          </bearer-navigator-screen>
-        )}
-        {!this.what && (
-          <bearer-navigator-screen
-            navigationTitle="What to remind?"
-            renderFunc={({ next }) => <what-selector next={next} />}
-            name="what"
-          />
-        )}
-        {!this.when && (
-          <bearer-navigator-screen
-            navigationTitle="When to remind?"
-            renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
-            name="when"
-          />
-        )}
-      </bearer-navigator>
-    )
+        <bearer-navigator btnProps={btnProps} complete={this.complete}>
+          <bearer-navigator-auth-screen />
+          {!this.who && (
+            <bearer-navigator-screen navigationTitle="Who to remind?" name="who">
+              <who-selector />
+            </bearer-navigator-screen>
+          )}
+          {!this.what && (
+            <bearer-navigator-screen
+              navigationTitle="What to remind?"
+              renderFunc={({ next }) => <what-selector next={next} />}
+              name="what"
+            />
+          )}
+          {!this.when && (
+            <bearer-navigator-screen
+              navigationTitle="When to remind?"
+              renderFunc={({ next }) => <when-selector next={next} dates={this.dateChoicesData} />}
+              name="when"
+            />
+          )}
+        </bearer-navigator>
+      )
   }
 }

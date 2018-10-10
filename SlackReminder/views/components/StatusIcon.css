@@ -1,0 +1,52 @@
+:host {
+  display: inline-block;
+  --icon-color: white;
+  --icon-width: 26px;
+  --icon-height: 1em;
+  height: var(--icon-height)
+}
+
+.root {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.35s;
+  width: 26px;
+}
+
+.root.visible {
+  opacity: 1;
+}
+
+.root.success::before {
+  margin-left: 10px;
+  /*Add another block-level blank space*/
+  content: '';
+  display: block;
+  /*Make it a small rectangle so the border will create an L-shape*/
+  width: 6px;
+  height: 12px;
+  /*Add a white border on the bottom and left, creating that 'L' */
+  border: solid var(--icon-color);
+  border-width: 0 2px 2px 0;
+  /*Rotate the L 45 degrees to turn it into a checkmark*/
+  transform: rotate(45deg);
+  position: relative;
+  top: -2px;
+}
+
+.root.error:before, .root.error:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: var(--icon-height);
+  width: 2px;
+  background-color: var(--icon-color);
+}
+
+.root.error:before {
+  transform: rotate(45deg);
+}
+
+.root.error:after {
+  transform: rotate(-45deg);
+}

@@ -6,9 +6,17 @@ const defaults = [
     value: 'in 1 min'
   },
   {
+    text: '⏰ in 1 hour',
+    value: 'in 1 hour'
+  },
+  {
+    text: '🗓 tomorrow',
+    value: 'tomorrow'
+  },
+  {
     text: '🗓 next monday',
     value: 'next monday'
-  }
+  },
 ]
 @Component({
   tag: 'when-selector',

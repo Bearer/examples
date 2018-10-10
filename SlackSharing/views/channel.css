@@ -1,0 +1,85 @@
+/* Channels */
+
+.channel-root {
+  position: relative;
+}
+
+.channel-root ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  max-height: 200px;
+  overflow: scroll;
+  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
+  padding: 5px 10px;
+}
+
+.channel-root ul>li {
+  padding: 6px 6px;
+  margin: 0;
+  list-style-type: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.channel-root ul>li.selected {
+  background: #f8f9ff;
+}
+
+.channel-root ul>li>button {
+  opacity: 0;
+  margin-left: 10px;
+}
+
+.channel-root ul>li>button:focus {
+  opacity: 1;
+}
+
+.channel-root input {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+  text-transform: undefined;
+  color: #484848;
+  padding-top: undefined;
+  padding-bottom: undefined;
+  background-color: transparent;
+  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
+  padding: 11px;
+  padding-left: 37px;
+  width: 100%;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.search-icon {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  display: inline-block;
+  border-radius: 30px;
+  height: 12px;
+  width: 12px;
+  border: 2px solid var(--bearer-slack-share-icon-color, #7f7f7f);
+}
+
+.search-icon:after {
+  content: '';
+  height: 2px;
+  width: 6px;
+  background: var(--bearer-slack-share-icon-color, #7f7f7f);
+  position: absolute;
+  top: 13px;
+  left: 11px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+channel-lock {
+  display: inline-block;
+  vertical-align: middle;
+}
