@@ -3,15 +3,25 @@
 
 */
 
-import { RootComponent } from '@bearer/core'
+import Bearer, { RootComponent, Events, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
 import Slack from './components/SlackLogo'
+import { TAuthSavedPayload } from './types'
 
 @RootComponent({
   role: 'action',
   group: 'connect'
 })
 export class ConnectAction {
+  @Event()
+  saved: EventEmitter<TAuthSavedPayload>
+
+  componentDidLoad() {
+    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
+      this.saved.emit({ authId: data.authId })
+    })
+  }
+
   unauthorized = ({ authenticate }) => (
     <bearer-button kind="primary" onClick={authenticate}>
       <span class="root">
@@ -29,6 +39,7 @@ export class ConnectAction {
       </span>
     </bearer-button>
   )
+
   render() {
     return <bearer-authorized renderUnauthorized={this.unauthorized} renderAuthorized={this.authorized} />
   }
