@@ -5,3 +5,7 @@ export type TChannel = {
 }
 
 export type TSavedChannelPayload = { channelId: string; channel: TChannel }
+
+export type TAuthSavedPayload = {
+  authId: string
+}
