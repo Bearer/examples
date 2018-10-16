@@ -8,21 +8,26 @@ import '@bearer/ui'
 import Slack from './components/SlackLogo'
 import { TAuthSavedPayload } from './types'
 
+export type TAuthorizedPayload = {
+  authId: string
+}
+
 @RootComponent({
   role: 'action',
-  group: 'connect'
+  group: 'connect',
+  shadow: false
 })
 export class ConnectAction {
   @Event()
-  saved: EventEmitter<TAuthSavedPayload>
+  authorized: EventEmitter<TAuthorizedPayload>
 
   componentDidLoad() {
-    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
-      this.saved.emit({ authId: data.authId })
+    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }: { data: TAuthSavedPayload }) => {
+      this.authorized.emit({ authId: data.authId })
     })
   }
 
-  unauthorized = ({ authenticate }) => (
+  renderUnauthorized = ({ authenticate }) => (
     <bearer-button kind="primary" onClick={authenticate}>
       <span class="root">
         <span>Connect to</span>
@@ -31,7 +36,7 @@ export class ConnectAction {
     </bearer-button>
   )
 
-  authorized = ({ revoke }) => (
+  renderAuthorized = ({ revoke }) => (
     <bearer-button kind="warning" onClick={revoke}>
       <span class="root">
         <span>Revoke access to </span>
@@ -41,6 +46,6 @@ export class ConnectAction {
   )
 
   render() {
-    return <bearer-authorized renderUnauthorized={this.unauthorized} renderAuthorized={this.authorized} />
+    return <bearer-authorized renderUnauthorized={this.renderUnauthorized} renderAuthorized={this.renderAuthorized} />
   }
 }

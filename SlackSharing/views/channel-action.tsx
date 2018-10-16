@@ -3,9 +3,8 @@
 
 */
 
-import Bearer, {
+import {
   Prop,
-  Events,
   Element,
   RootComponent,
   Intent,
@@ -13,7 +12,8 @@ import Bearer, {
   State,
   BearerFetch,
   Event,
-  EventEmitter
+  EventEmitter,
+  Listen
 } from '@bearer/core'
 import '@bearer/ui'
 import { TChannel, TSavedChannelPayload } from './types'
@@ -25,6 +25,7 @@ import { TChannel, TSavedChannelPayload } from './types'
 export class ChannelAction {
   @Intent('saveChannel', IntentType.SaveState)
   saveChannel: BearerFetch
+
   @Intent('ListChannel')
   listChannel: BearerFetch
 
@@ -35,10 +36,13 @@ export class ChannelAction {
   channel: TChannel
   @State()
   channels: Array<TChannel> = []
+
   @State()
   suggestions: Array<TChannel> = []
+
   @State()
   loading: boolean = true
+
   @State()
   fetchingChannels: boolean = false
   @State()
@@ -58,11 +62,10 @@ export class ChannelAction {
   @Event()
   saved: EventEmitter<TSavedChannelPayload>
 
-  componentDidLoad() {
-    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
-      this.authId = data.authId
-      this.notify({ name: 'authId', value: this.authId })
-    })
+  @Listen('body:connect:authorized')
+  handler(event) {
+    this.authId = event.detail.authId
+    this.notify({ name: 'authId', value: this.authId })
   }
 
   notify = params => {
@@ -119,7 +122,7 @@ export class ChannelAction {
     if (!Boolean(this.suggestions.length)) {
       this.fetchingChannels = true
       this.listChannel()
-        .then(({ data }) => {
+        .then(({ data }: { data: Array<{ id: string; name: string; is_private: boolean }> }) => {
           this.suggestions = this.channels = data
         })
         .catch(console.error)
