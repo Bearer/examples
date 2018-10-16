@@ -2,12 +2,10 @@ export default ({ color, height }: { color?: string; height?: string }) => (
   <svg
     version="1.1"
     height={height || '1em'}
-    id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
     viewBox="25 45 476 168"
-    style="enable-background:new 0 0 576 268;"
   >
     <style type="text/css">
       {' '}

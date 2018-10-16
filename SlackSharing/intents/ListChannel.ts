@@ -2,6 +2,10 @@ import { FetchData, TOAUTH2AuthContext, TFetchDataCallback } from '@bearer/inten
 // Uncomment this line if you need to use Client
 import Client from './client'
 
+type TSlackChannelsPayload = {
+  ok: boolean
+  channels: Array<{ id: string; name: string; is_private: boolean; is_archived: boolean }>
+}
 export default class ListChannelIntent {
   static intentName: string = 'ListChannel'
   static intentType: any = FetchData
@@ -9,7 +13,7 @@ export default class ListChannelIntent {
   static action(context: TOAUTH2AuthContext, params: any, body: any, callback: TFetchDataCallback) {
     Client(context.authAccess.accessToken)
       .get('conversations.list', { params: { types: 'public_channel,private_channel' } })
-      .then(response => {
+      .then((response: { data: TSlackChannelsPayload }) => {
         if (response.data.ok) {
           callback({
             data: response.data.channels
