@@ -5,7 +5,7 @@ Please find below some sample Scenario:
 - [Slack Reminder](./SlackReminder)
 - [Slack Sharing](./SlackSharing)
 - [MailChimp Subscribe](./mailchimpSubscribe)
-- [HelloWold](./helloWorld)
+- [Hello World](./helloWorld)
 
 
 *Built for you with Bearer ❤️*
