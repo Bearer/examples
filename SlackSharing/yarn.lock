@@ -73,7 +73,7 @@
     uuid "^3.3.2"
     webpack "^4.12.0"
 
-"@bearer/cli@^0.70.2":
+"@bearer/cli@^next":
   version "0.70.2"
   resolved "https://registry.yarnpkg.com/@bearer/cli/-/cli-0.70.2.tgz#eee6d93fed035ee8a0649471fd67ca779ad7a2e4"
   integrity sha512-Rq80KtGUvm+T9R+tUectM8X0YOr7iMTUO9j4djEwSIyMfddRrb6mmFSY4wf9FUXvhvxfR6sSRoDWAY/cL8dtKA==
@@ -113,13 +113,12 @@
     typescript-json-schema "^0.32.0"
     webpack "^4.20.2"
 
-"@bearer/core@^0.67.5", "@bearer/core@beta3":
-  version "0.67.5"
-  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.67.5.tgz#9905ccbecf65a18d20ac4c9855708ab6d4b855da"
-  integrity sha512-FV1x4Cw34s16tv5sNCIRYIimiQOEP29nQEFlATkIckA94x7OhmCk3YrgpudxitRFo9Io+K2wPAIdk0AKn7dluQ==
+"@bearer/core@0.70.3", "@bearer/core@^0.70.3":
+  version "0.70.3"
+  resolved "https://registry.yarnpkg.com/@bearer/core/-/core-0.70.3.tgz#62f6ae7191f95807ead583818512df3063c88463"
+  integrity sha512-aWO23yP0Wsk+GhnD4NUuuKkGFi91wviT96/80kkCNqL6RkGYS5Y1vtqAnfVtGagvdEcvtiimLIeVEe8Ng2e9kA==
   dependencies:
     "@stencil/core" "0.11.2"
-    babel-plugin-inline-dotenv "^1.1.2"
     fbemitter "^2.1.1"
     post-robot "^8.0.26"
     rc "^1.2.8"
@@ -127,18 +126,10 @@
     rollup-plugin-replace "^2.0.0"
     typescript "^2.9.2"
 
-"@bearer/intents@^0.70.2":
+"@bearer/intents@^0.70.2", "@bearer/intents@next":
   version "0.70.2"
   resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.70.2.tgz#bb732aa6a71c5f468787b19776c540a8c782c7c4"
   integrity sha512-9bykcHOeDQ3GXyXyFkd6nbFgCFtW9lpq+0rRr6Fca5q4C2dQaPGqnHIm2gUTwJSHEop+kgM4BtT/msLe/zCL0A==
-  dependencies:
-    axios "^0.18.0"
-    typescript "^2.9.2"
-
-"@bearer/intents@beta3":
-  version "0.67.5"
-  resolved "https://registry.yarnpkg.com/@bearer/intents/-/intents-0.67.5.tgz#cd1fb557fbd8b3f0bd704d3741a53ee44b632609"
-  integrity sha512-nJScGH4LHuB59AKabrTNHGLaZcEAaO6o+/lg7q7jY9dOYyE4l85MXEY1pwvb5jpSctBLNIJ4/dfLLcYJDjtJOA==
   dependencies:
     axios "^0.18.0"
     typescript "^2.9.2"
@@ -168,12 +159,12 @@
   resolved "https://registry.yarnpkg.com/@bearer/types/-/types-0.70.2.tgz#82af9c44042b4af60a2730485a247e282a448b29"
   integrity sha512-BGwqG53dIijoht27+soETHlnZ3jyx7rv8BaBwF+gsSO5qSQin+tQMFhf1l68UHWP2nncYARvkKYeU1RmPw37sA==
 
-"@bearer/ui@beta3":
-  version "0.67.5"
-  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.67.5.tgz#536aa5fa8119f05c60a233c27208d7527ee9f4ce"
-  integrity sha512-EdkQFy0lZijITehuBN+gW3NfdvoFGmuM72nkGv5ScoxrjY4l9tq0uPQmMuVETn+SI5GmMsypvu0pvCUwPrztIw==
+"@bearer/ui@0.70.3":
+  version "0.70.3"
+  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.70.3.tgz#b666160e515ffddbc2b873057374e3a3c7bf356e"
+  integrity sha512-WQNry4KXWYKqltXSvZMqTvM+bZP6YmndfdYgHea+xJLVxWJBqpA2FtWPLYOTRp3QU99bk5O315JI9Pgy2u2Bpw==
   dependencies:
-    "@bearer/core" "^0.67.5"
+    "@bearer/core" "^0.70.3"
     "@stencil/core" "0.11.2"
     "@stencil/sass" "^0.1.0"
     bootstrap "^4.1.0"
@@ -1055,13 +1046,6 @@ babel-messages@^6.23.0:
   integrity sha1-8830cDhYA1sqKVHG7F7fbGLyYw4=
   dependencies:
     babel-runtime "^6.22.0"
-
-babel-plugin-inline-dotenv@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-inline-dotenv/-/babel-plugin-inline-dotenv-1.1.2.tgz#d9b43f48b1471506bdc5fe571a067472f16aedf6"
-  integrity sha1-2bQ/SLFHFQa9xf5XGgZ0cvFq7fY=
-  dependencies:
-    dotenv "^4.0.0"
 
 babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
@@ -2442,11 +2426,6 @@ dot-prop@^4.1.0:
   integrity sha512-tUMXrxlExSW6U2EXiiKGSBVdYgtV8qlHL+C10TsW4PURY/ic+eaysnSkwB4kA/mBlCyy/IKDJ+Lc3wbWeaXtuQ==
   dependencies:
     is-obj "^1.0.0"
-
-dotenv@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
-  integrity sha1-hk7xN5rO1Vzm+V3r7NzhefegzR0=
 
 duplexer3@^0.1.4:
   version "0.1.4"

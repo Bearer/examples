@@ -6,11 +6,7 @@
 import Bearer, { RootComponent, Events, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
 import Slack from './components/SlackLogo'
-import { TAuthSavedPayload } from './types'
-
-export type TAuthorizedPayload = {
-  authId: string
-}
+import { TAuthSavedPayload, TAuthorizedPayload } from './types'
 
 @RootComponent({
   role: 'action',

@@ -9,3 +9,7 @@ export type TSavedChannelPayload = { channelId: string; channel: TChannel }
 export type TAuthSavedPayload = {
   authId: string
 }
+
+export type TAuthorizedPayload = {
+  authId: string
+}
