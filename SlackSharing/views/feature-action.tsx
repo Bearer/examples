@@ -1,27 +1,22 @@
-import Bearer, {
-  RootComponent,
-  Prop,
-  Events,
-  Event,
-  EventEmitter,
-  Intent,
-  BearerFetch,
-  State,
-  Listen
-} from '@bearer/core'
+import { RootComponent, Prop, Intent, BearerFetch, State } from '@bearer/core'
 import '@bearer/ui'
-import { TSavedChannelPayload } from './types'
+import { Input, Output, BearerRef, TChannel } from './types'
 @RootComponent({
   role: 'action',
   group: 'feature'
 })
 export class FeatureAction {
+  @Input()
+  auth: BearerRef<string>
+  @Input()
+  channel: BearerRef<TChannel>
+
+  @Output()
+  notification: BearerRef<any>
+
   @Intent('Share')
   fetcher: BearerFetch
-  @Prop({ mutable: true })
-  authId: string
-  @Prop({ mutable: true })
-  channelId: string
+
   @Prop()
   text: string = 'Share on slack'
   @Prop()
@@ -32,26 +27,6 @@ export class FeatureAction {
   error: boolean = false
   @State()
   shared: boolean = false
-  @Event()
-  propSet: EventEmitter
-
-  @Listen('body:channel:saved')
-  savedChannelHandler(event: { detail: TSavedChannelPayload }) {
-    this.channelId = event.detail.channelId
-    // dev portal specific code
-    this.notify({ name: 'channelId', value: this.channelId })
-  }
-
-  componentDidLoad() {
-    Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }) => {
-      this.authId = data.authId
-      this.notify({ name: 'authId', value: this.authId })
-    })
-  }
-
-  notify = params => {
-    this.propSet.emit(params)
-  }
 
   perform = () => {
     if (this.shared) {
@@ -59,13 +34,10 @@ export class FeatureAction {
     }
     this.loading = true
     this.error = false
-    this.fetcher({
-      authId: this.authId,
-      channelId: this.channelId,
-      body: { message: this.message }
-    })
+    this.fetcher({ body: { message: this.message, authId: this.auth, channelId: this.channel } })
       .then(({ data }) => {
         if (data.ok) {
+          this.notification = { referenceId: new Date() }
           this.shared = true
         }
       })

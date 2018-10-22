@@ -3,55 +3,27 @@
 
 */
 
-import { Prop, Element, RootComponent, Intent, State, BearerFetch, Event, EventEmitter, Listen } from '@bearer/core'
+import { RootComponent, State, Listen } from '@bearer/core'
 import '@bearer/ui'
-import { TChannel, TSavedChannelPayload } from './types'
+import { TChannel, Input, Output, BearerRef } from './types'
 
 @RootComponent({
   role: 'action',
   group: 'channel'
 })
 export class ChannelAction {
-  @Intent('saveChannel')
-  saveChannel: BearerFetch<TChannel>
+  @Input()
+  auth: BearerRef<string>
 
-  @Prop({ mutable: true })
-  authId: string
+  @Output()
+  channel: BearerRef<TChannel>
 
-  @State()
-  channel: TChannel
   @State()
   editMode: boolean = false
-
-  @Element()
-  el: HTMLElement
-
-  @Event()
-  propSet: EventEmitter
-
-  @Event()
-  saved: EventEmitter<TSavedChannelPayload>
-
-  @Listen('body:connect:authorized')
-  handler(event) {
-    this.authId = event.detail.authId
-    this.notify({ name: 'authId', value: this.authId })
-  }
-
-  notify = params => {
-    this.propSet.emit(params)
-  }
 
   attachChannel = (channel: TChannel): void => {
     this.editMode = false
     this.channel = channel
-    this.saveChannel({ authId: this.authId, body: { channel } })
-      .then(({ data, referenceId }) => {
-        this.saved.emit({ channelId: referenceId, channel: data })
-      })
-      .catch(error => {
-        throw error
-      })
   }
 
   toggleEdit = () => {
