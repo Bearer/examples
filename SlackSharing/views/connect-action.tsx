@@ -1,12 +1,12 @@
 /*
   The purpose of this component is to deal with scenario navigation between each views.
-
 */
 
-import Bearer, { RootComponent, Events, Event, EventEmitter } from '@bearer/core'
+import Bearer, { RootComponent, Events } from '@bearer/core'
 import '@bearer/ui'
+
 import Slack from './components/SlackLogo'
-import { TAuthSavedPayload, TAuthorizedPayload } from './types'
+import { TAuthSavedPayload, Output, BearerRef } from './types'
 
 @RootComponent({
   role: 'action',
@@ -14,12 +14,12 @@ import { TAuthSavedPayload, TAuthorizedPayload } from './types'
   shadow: false
 })
 export class ConnectAction {
-  @Event()
-  authorized: EventEmitter<TAuthorizedPayload>
+  @Output()
+  auth: BearerRef<string>
 
   componentDidLoad() {
     Bearer.emitter.addListener(Events.AUTHORIZED, ({ data }: { data: TAuthSavedPayload }) => {
-      this.authorized.emit({ authId: data.authId })
+      this.auth = data.authId
     })
   }
 
