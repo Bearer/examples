@@ -1,20 +1,24 @@
 import { RootComponent, Intent, BearerState, IntentType } from '@bearer/core'
 import '@bearer/ui'
 
+import { Output, BearerRef, TPullRequest } from './types'
+
 @RootComponent({
   role: 'action',
   group: 'feature'
 })
 export class FeatureAction {
+  @Output()
+  pullRequests: BearerRef<Array<TPullRequest>>
   // Connect savePullRequest Intent
-  @Intent('savePullRequest', IntentType.SaveState) savePullRequest: any
-  @BearerState() attachedPullRequests: Array<any> = []
+  @Intent('savePullRequest', IntentType.SaveState)
+  savePullRequest: any
 
   attachPullRequest = ({ data, complete }): void => {
     // Use the savePullRequest intent to store the current state
     this.savePullRequest({ body: data })
       .then(() => {
-        this.attachedPullRequests = [...this.attachedPullRequests, data.pullRequest]
+        this.pullRequests = [...this.pullRequests, data.pullRequest]
         complete()
       })
       .catch(error => {
