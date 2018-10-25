@@ -37,6 +37,9 @@ export class FeatureAction {
 
   @Listen('body:channel:saved')
   savedChannelHandler(event: { detail: TSavedChannelPayload }) {
+    if (this.channelId !== event.detail.channelId) {
+      this.shared = false
+    }
     this.channelId = event.detail.channelId
     // dev portal specific code
     this.notify({ name: 'channelId', value: this.channelId })
