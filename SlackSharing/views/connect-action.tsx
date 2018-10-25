@@ -5,7 +5,7 @@
 
 import Bearer, { RootComponent, Events, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
-import Slack from './components/SlackLogo'
+import Slack from './components/SlackLogoColor'
 import { TAuthSavedPayload } from './types'
 
 export type TAuthorizedPayload = {
@@ -30,8 +30,8 @@ export class ConnectAction {
   renderUnauthorized = ({ authenticate }) => (
     <bearer-button kind="primary" onClick={authenticate}>
       <span class="root">
-        <span>Connect to</span>
-        <Slack height="1.5em" />
+        <Slack />
+        <span>Connect your Slack</span>
       </span>
     </bearer-button>
   )
@@ -39,8 +39,8 @@ export class ConnectAction {
   renderAuthorized = ({ revoke }) => (
     <bearer-button kind="warning" onClick={revoke}>
       <span class="root">
-        <span>Revoke access to </span>
-        <Slack color="#333" height="1.5em" />
+        <Slack />
+        <span>Revoke access to your Slack</span>
       </span>
     </bearer-button>
   )
