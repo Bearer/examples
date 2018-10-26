@@ -4,19 +4,29 @@
   position: relative;
 }
 
-.channel-root ul {
+.channel-root .suggestion-container {
+  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
+}
+
+.channel-root .suggestion-container {
   position: absolute;
   background: white;
   top: 100%;
   left: 0;
   right: 0;
+  max-height: 200px;
+  z-index: 1;
+  overflow: auto;
+}
+
+.channel-root ul {
+  top: 1px;
+  left: 1px;
   padding: 0;
   margin: 0;
   list-style-type: none;
-  z-index: 1;
-  max-height: 200px;
+
   overflow: scroll;
-  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
   padding: 5px 10px;
 }
 
