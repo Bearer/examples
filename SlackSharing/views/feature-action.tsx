@@ -82,7 +82,7 @@ export class FeatureAction {
   }
 
   render() {
-    const kind = this.shared ? 'success' : this.error ? 'danger' : 'primary'
+    const kind = this.shared ? 'success' : this.error ? 'danger' : 'light'
     return (
       <bearer-button onClick={this.perform} kind={kind}>
         <div class="root">

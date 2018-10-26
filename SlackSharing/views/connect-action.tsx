@@ -28,7 +28,7 @@ export class ConnectAction {
   }
 
   renderUnauthorized = ({ authenticate }) => (
-    <bearer-button kind="primary" onClick={authenticate}>
+    <bearer-button kind="light" onClick={authenticate}>
       <span class="root">
         <Slack />
         <span>Connect your Slack</span>
