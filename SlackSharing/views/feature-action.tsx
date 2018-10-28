@@ -25,7 +25,7 @@ export class FeatureAction {
   @Prop()
   text: string = 'Share on slack'
   @Prop()
-  message: string = "Don't forget to bring your 🐻 to the party!! https://www.bearer.sh"
+  message: string = "Hey, this is Bearer.sh reaching out 🐻"
   @State()
   loading: boolean = false
   @State()
