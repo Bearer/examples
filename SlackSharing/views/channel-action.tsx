@@ -16,6 +16,7 @@ import {
   Listen
 } from '@bearer/core'
 import '@bearer/ui'
+import Search from './components/IconSearch'
 import { TChannel, TSavedChannelPayload } from './types'
 
 @RootComponent({
@@ -147,7 +148,7 @@ export class ChannelAction {
       return (
         <div class="channel-root">
           <div>
-            <label class="search-icon" htmlFor="input" />
+            <Search className="search-icon" />
             <input
               autocomplete="off"
               id="input"

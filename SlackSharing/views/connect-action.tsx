@@ -6,6 +6,7 @@
 import Bearer, { RootComponent, Events, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
 import Slack from './components/SlackLogoColor'
+import Cross from './components/IconCross'
 import { TAuthSavedPayload } from './types'
 
 export type TAuthorizedPayload = {
@@ -37,9 +38,9 @@ export class ConnectAction {
   )
 
   renderAuthorized = ({ revoke }) => (
-    <bearer-button kind="warning" onClick={revoke}>
+    <bearer-button kind="danger" outline onClick={revoke}>
       <span class="root">
-        <Slack />
+        <Cross />
         <span>Revoke access to your Slack</span>
       </span>
     </bearer-button>
