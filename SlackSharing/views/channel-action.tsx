@@ -16,6 +16,7 @@ import {
   Listen
 } from '@bearer/core'
 import '@bearer/ui'
+import Search from './components/IconSearch'
 import { TChannel, TSavedChannelPayload } from './types'
 
 @RootComponent({
@@ -142,10 +143,12 @@ export class ChannelAction {
     if (this.channel && !this.editMode) {
       return <selected-channel channel={this.channel} onEditClick={this.toggleEdit} />
     } else {
+      const hasSuggestions = Boolean(this.suggestions.length)
+      const showContainer = hasSuggestions || this.fetchingChannels
       return (
         <div class="channel-root">
           <div>
-            <label class="search-icon" htmlFor="input" />
+            <Search className="search-icon" />
             <input
               autocomplete="off"
               id="input"
@@ -155,26 +158,30 @@ export class ChannelAction {
               onFocus={this.onInputFocused}
               onKeyDown={this.onKeyPress}
             />
-            {this.fetchingChannels && <bearer-loading />}
           </div>
-          {!this.fetchingChannels &&
-            Boolean(this.suggestions.length) && (
-              <ul>
-                {this.suggestions.map((c, index) => (
-                  <li
-                    class={this.selected === index ? 'selected' : ''}
-                    onClick={() => {
-                      this.attachChannel(c)
-                    }}
-                    onMouseEnter={this.onFocus(index)}
-                  >
-                    {c.is_private ? <channel-lock /> : '#'}
-                    {c.name}
-                    <button onFocus={this.onFocus(index)}>Select</button>
-                  </li>
-                ))}
-              </ul>
-            )}
+          {showContainer && (
+            <div class="suggestion-container">
+              {this.fetchingChannels && <bearer-loading />}
+              {!this.fetchingChannels &&
+                hasSuggestions && (
+                  <ul>
+                    {this.suggestions.map((c, index) => (
+                      <li
+                        class={this.selected === index ? 'selected' : ''}
+                        onClick={() => {
+                          this.attachChannel(c)
+                        }}
+                        onMouseEnter={this.onFocus(index)}
+                      >
+                        {c.is_private ? <channel-lock /> : '#'}
+                        {c.name}
+                        <button onFocus={this.onFocus(index)}>Select</button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+            </div>
+          )}
         </div>
       )
     }

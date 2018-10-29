@@ -25,7 +25,7 @@ export class FeatureAction {
   @Prop()
   text: string = 'Share on slack'
   @Prop()
-  message: string = "Don't forget to bring your 🐻 to the party!! https://www.bearer.sh"
+  message: string = "Hey, this is Bearer.sh reaching out 🐻"
   @State()
   loading: boolean = false
   @State()
@@ -82,12 +82,11 @@ export class FeatureAction {
   }
 
   render() {
-    const kind = this.shared ? 'success' : this.error ? 'danger' : 'primary'
+    const kind = 'light'
     return (
       <bearer-button onClick={this.perform} kind={kind}>
         <div class="root">
-          <span class="text">{this.text}</span>
-          <status-icon visible={this.error || this.shared} kind={this.shared ? 'success' : 'error'} />
+          {this.text}
         </div>
       </bearer-button>
     )

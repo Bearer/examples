@@ -7,11 +7,11 @@
     "consent": true
   },
   "tokenParams": {
-    "redirect_uri": "https://int.bearer.sh/v1/auth/callback"
+    "redirect_uri": "{{CALLBACK_URL}}"
   },
   "config": {
     "accessType": "offline",
-    "callbackURL": "https://int.bearer.sh/v1/auth/callback",
+    "callbackURL": "{{CALLBACK_URL}}",
     "scope": ["channels:read", "chat:write:bot", "groups:read"]
   },
   "setupViews": [

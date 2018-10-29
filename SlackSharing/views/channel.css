@@ -4,19 +4,29 @@
   position: relative;
 }
 
-.channel-root ul {
+.channel-root .suggestion-container {
+  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
+}
+
+.channel-root .suggestion-container {
   position: absolute;
   background: white;
   top: 100%;
   left: 0;
   right: 0;
+  max-height: 200px;
+  z-index: 1;
+  overflow: auto;
+}
+
+.channel-root ul {
+  top: 1px;
+  left: 1px;
   padding: 0;
   margin: 0;
   list-style-type: none;
-  z-index: 1;
-  max-height: 200px;
+
   overflow: scroll;
-  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
   padding: 5px 10px;
 }
 
@@ -43,46 +53,24 @@
 
 .channel-root input {
   box-sizing: border-box;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 1em;
+  line-height: 1;
   letter-spacing: normal;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-  text-transform: undefined;
-  color: #484848;
-  padding-top: undefined;
-  padding-bottom: undefined;
+  font-family: inherit;
+  color: currentColor;
   background-color: transparent;
-  border: 1px solid var(--bearer-slack-share-icon-color, #dcdcdc);
-  padding: 11px;
-  padding-left: 37px;
+  border: 1px solid var(--bearer-slack-share-icon-color, #bfc4d5);
+  padding: calc(.5em - 1px) 1em calc(.5em + 1px) 3em;
+  border-radius: 2px;
   width: 100%;
-  font-weight: 600;
   text-overflow: ellipsis;
 }
 
 .search-icon {
   position: absolute;
-  top: 14px;
-  left: 10px;
+  top: .75em;
+  left: 1em;
   display: inline-block;
-  border-radius: 30px;
-  height: 12px;
-  width: 12px;
-  border: 2px solid var(--bearer-slack-share-icon-color, #7f7f7f);
-}
-
-.search-icon:after {
-  content: '';
-  height: 2px;
-  width: 6px;
-  background: var(--bearer-slack-share-icon-color, #7f7f7f);
-  position: absolute;
-  top: 13px;
-  left: 11px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
 }
 
 channel-lock {
