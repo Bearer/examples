@@ -25,7 +25,7 @@ export class FeatureAction {
   @Prop()
   text: string = 'Share on slack'
   @Prop()
-  message: string = "Hey, this is Bearer.sh reaching out 🐻"
+  message: string = 'Hey, this is Bearer.sh reaching out 🐻'
   @State()
   loading: boolean = false
   @State()
@@ -37,6 +37,7 @@ export class FeatureAction {
 
   @Listen('body:channel:saved')
   savedChannelHandler(event: { detail: TSavedChannelPayload }) {
+    console.log('[BEARER]', 'event.detail', event.detail)
     if (this.channelId !== event.detail.channelId) {
       this.shared = false
     }
@@ -85,9 +86,7 @@ export class FeatureAction {
     const kind = 'light'
     return (
       <bearer-button onClick={this.perform} kind={kind}>
-        <div class="root">
-          {this.text}
-        </div>
+        <div class="root">{this.text}</div>
       </bearer-button>
     )
   }
