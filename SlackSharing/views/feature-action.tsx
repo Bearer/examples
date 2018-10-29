@@ -25,7 +25,7 @@ export class FeatureAction {
   @Prop()
   text: string = 'Share on slack'
   @Prop()
-  message: string = "Hey, this is Bearer.sh reaching out 🐻"
+  message: string = 'Hey, this is Bearer.sh reaching out 🐻'
   @State()
   loading: boolean = false
   @State()
@@ -70,11 +70,17 @@ export class FeatureAction {
       .then(({ data }) => {
         if (data.ok) {
           this.shared = true
+          setTimeout(() => {
+            this.shared = false
+          }, 3000)
         }
       })
       .catch(e => {
         console.error('[BEARER]', 'Error', e)
         this.error = true
+        setTimeout(() => {
+          this.error = false
+        }, 3000)
       })
       .then(() => {
         this.loading = false
@@ -82,12 +88,10 @@ export class FeatureAction {
   }
 
   render() {
-    const kind = 'light'
+    const kind = this.shared ? 'success' : this.error ? 'danger' : 'light'
     return (
       <bearer-button onClick={this.perform} kind={kind}>
-        <div class="root">
-          {this.text}
-        </div>
+        <div class="root">{this.text}</div>
       </bearer-button>
     )
   }
