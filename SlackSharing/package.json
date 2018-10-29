@@ -17,7 +17,7 @@
   "dependencies": {
     "@bearer/core": "0.71.0",
     "@bearer/intents": "0.71.0",
-    "@bearer/ui": "0.71.1",
+    "@bearer/ui": "0.71.2",
     "axios": "^0.18.0"
   },
   "devDependencies": {

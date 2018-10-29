@@ -160,10 +160,10 @@
   resolved "https://registry.yarnpkg.com/@bearer/types/-/types-0.71.0.tgz#e44cb56ac2f3ae337d52c56e168312af34f678c5"
   integrity sha512-cE8TXiOXfcJot4ASq4WH2XZEU8JiNtCCuWT0vWrYEPMEzkJgyrQmB4sNUfpTHTrVFQr5sLGogFb55SCXCKF82g==
 
-"@bearer/ui@0.71.1":
-  version "0.71.1"
-  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.71.1.tgz#860b6dd6184cd2d6dde7d77ce3410507f6953ec6"
-  integrity sha512-VmusQrtpXq3k8LnpJT9v0hxhJa0Pcv/ANGdPXn59/hAYmFSUxOLCr7XxIZUjCJYR3VCJpsVLYLbpO++9tFVipQ==
+"@bearer/ui@0.71.2":
+  version "0.71.2"
+  resolved "https://registry.yarnpkg.com/@bearer/ui/-/ui-0.71.2.tgz#6f85f59bbd50462b9a8b460850cce8b46b259df1"
+  integrity sha512-LrLzYmxKPSz9qk8TmD+/H7UsxPrS6kdm4ZiOyJNla+LYmb4K6ZweTWqLnUT8tqvoE7w+ri9MaocPh7BR6fdYaA==
   dependencies:
     "@bearer/core" "^0.71.0"
     "@stencil/core" "0.11.2"
