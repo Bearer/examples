@@ -26,7 +26,7 @@
   margin: 0;
   list-style-type: none;
 
-  overflow: scroll;
+  overflow: auto;
   padding: 5px 10px;
 }
 
@@ -36,6 +36,7 @@
   list-style-type: none;
   border-radius: 6px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .channel-root ul > li.selected {
@@ -60,7 +61,7 @@
   color: currentColor;
   background-color: transparent;
   border: 1px solid var(--bearer-slack-share-icon-color, #bfc4d5);
-  padding: calc(.5em - 1px) 1em calc(.5em + 1px) 3em;
+  padding: calc(0.5em - 1px) 1em calc(0.5em + 1px) 3em;
   border-radius: 2px;
   width: 100%;
   text-overflow: ellipsis;
@@ -68,7 +69,7 @@
 
 .search-icon {
   position: absolute;
-  top: .75em;
+  top: 0.75em;
   left: 1em;
   display: inline-block;
 }
