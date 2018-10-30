@@ -61,7 +61,7 @@
   color: currentColor;
   background-color: transparent;
   border: 1px solid var(--bearer-slack-share-icon-color, #bfc4d5);
-  padding: calc(0.5em - 1px) 1em calc(0.5em + 1px) 3em;
+  padding: calc(0.5em + 1px) 1em calc(0.5em + 1px) 3em;
   border-radius: 2px;
   width: 100%;
   text-overflow: ellipsis;
