@@ -3,16 +3,25 @@
   This file has been generated automatically and should not be edited.
 */
 
-import { RootComponent, State, Prop } from '@bearer/core'
+import { RootComponent, State, Event, EventEmitter } from '@bearer/core'
 import '@bearer/ui'
+
+export type TSetupPayload = {
+  setupId: string
+}
 
 @RootComponent({
   group: 'setup',
   role: 'action'
 })
 export class SetupAction {
-  @Prop()
-  onSetupSuccess: (detail: any) => void = (_any: any) => {}
+  @Event()
+  saved: EventEmitter<TSetupPayload>
+
+  onSetupSuccess = (event: any) => {
+    this.saved.emit({ setupId: event.detail.referenceId })
+  }
+
   @State()
   fields = [
     { type: 'text', label: 'Client ID', controlName: 'clientID' },
