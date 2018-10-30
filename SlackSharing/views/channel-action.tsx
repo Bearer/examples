@@ -13,8 +13,7 @@ import {
   BearerFetch,
   Event,
   EventEmitter,
-  Listen,
-  Watch
+  Listen
 } from '@bearer/core'
 import '@bearer/ui'
 import Search from './components/IconSearch'
@@ -64,15 +63,18 @@ export class ChannelAction {
   @Event()
   saved: EventEmitter<TSavedChannelPayload>
 
+  componentDidLoad() {
+    document.addEventListener('click', () => {
+      this.editMode = false
+      console.log('ok')
+    })
+  }
+
   @Listen('body:connect:authorized')
   handler(event) {
     this.authId = event.detail.authId
-    this.notify({ name: 'authId', value: this.authId })
-  }
-
-  @Watch('authId')
-  authIdChanged() {
     this.suggestions = []
+    this.notify({ name: 'authId', value: this.authId })
   }
 
   notify = params => {
@@ -126,6 +128,7 @@ export class ChannelAction {
   }
 
   onInputFocused = () => {
+    this.editMode = true
     if (!Boolean(this.suggestions.length)) {
       this.fetchingChannels = true
       this.listChannel()
@@ -145,14 +148,22 @@ export class ChannelAction {
     this.selected = 0
   }
 
+  onClick = (event: Event) => {
+    event.stopImmediatePropagation()
+  }
+
   render() {
     if (this.channel && !this.editMode) {
-      return <selected-channel channel={this.channel} onEditClick={this.toggleEdit} />
+      return (
+        <div onClick={this.onClick}>
+          <selected-channel channel={this.channel} onEditClick={this.toggleEdit} />
+        </div>
+      )
     } else {
       const hasSuggestions = Boolean(this.suggestions.length)
-      const showContainer = hasSuggestions || this.fetchingChannels
+      const showContainer = this.editMode && (hasSuggestions || this.fetchingChannels)
       return (
-        <div class="channel-root">
+        <div class="channel-root" onClick={this.onClick}>
           <div>
             <Search className="search-icon" />
             <input
