@@ -13,7 +13,8 @@ import {
   BearerFetch,
   Event,
   EventEmitter,
-  Listen
+  Listen,
+  Watch
 } from '@bearer/core'
 import '@bearer/ui'
 import Search from './components/IconSearch'
@@ -67,6 +68,11 @@ export class ChannelAction {
   handler(event) {
     this.authId = event.detail.authId
     this.notify({ name: 'authId', value: this.authId })
+  }
+
+  @Watch('authId')
+  authIdChanged() {
+    this.suggestions = []
   }
 
   notify = params => {
