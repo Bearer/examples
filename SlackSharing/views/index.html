@@ -28,7 +28,7 @@
           <div class="page-header">
             <h1 class="page-title">Share on Slack</h1>
           </div>
-          <div class="card card-collapsed">
+          <div class="card ">
             <div class="card-header">
               <h1 class="card-title">Setup</h1>
             </div>
@@ -124,6 +124,11 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener('bearer|YOU_SCENARIO_ID|setup|saved', function (e) {
+      console.log(e)
+    })
+  </script>
 </body>
 
 </html>

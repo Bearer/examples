@@ -31,14 +31,16 @@ export class FeatureAction {
   @State()
   error: boolean = false
   @State()
-  shared: boolean = false
+  hasShared: boolean = false
   @Event()
   propSet: EventEmitter
+  @Event()
+  shared: EventEmitter
 
   @Listen('body:channel:saved')
   savedChannelHandler(event: { detail: TSavedChannelPayload }) {
     if (this.channelId !== event.detail.channelId) {
-      this.shared = false
+      this.hasShared = false
     }
     this.channelId = event.detail.channelId
     // dev portal specific code
@@ -57,7 +59,7 @@ export class FeatureAction {
   }
 
   perform = () => {
-    if (this.shared) {
+    if (this.hasShared) {
       return
     }
     this.loading = true
@@ -69,9 +71,10 @@ export class FeatureAction {
     })
       .then(({ data }) => {
         if (data.ok) {
-          this.shared = true
+          this.hasShared = true
+          this.shared.emit()
           setTimeout(() => {
-            this.shared = false
+            this.hasShared = false
           }, 3000)
         }
       })
@@ -88,7 +91,7 @@ export class FeatureAction {
   }
 
   render() {
-    const kind = this.shared ? 'success' : this.error ? 'danger' : 'light'
+    const kind = this.hasShared ? 'success' : this.error ? 'danger' : 'light'
     return (
       <bearer-button onClick={this.perform} kind={kind}>
         <div class="root">{this.text}</div>
