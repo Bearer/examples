@@ -144,7 +144,8 @@ export class ChannelAction {
 
   filter = event => {
     this.input = event.target.value
-    this.suggestions = [...this.channels.filter(c => fuzzysearch(this.input, c.name))]
+    const matcher = this.input.toLocaleLowerCase()
+    this.suggestions = [...this.channels.filter(c => fuzzysearch(matcher, c.name.toLocaleLowerCase()))]
     this.selected = 0
   }
 
@@ -170,7 +171,7 @@ export class ChannelAction {
               autocomplete="off"
               id="input"
               placeholder="Search for a channel"
-              onInput={this.filter}
+              onKeyUp={this.filter}
               value={this.input}
               onFocus={this.onInputFocused}
               onKeyDown={this.onKeyPress}
