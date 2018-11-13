@@ -131,7 +131,7 @@ export class ChannelAction {
     this.editMode = true
     if (!Boolean(this.suggestions.length)) {
       this.fetchingChannels = true
-      this.listChannel()
+      this.listChannel({ authId: this.authId })
         .then(({ data }: { data: Array<{ id: string; name: string; is_private: boolean }> }) => {
           this.suggestions = this.channels = data
         })
@@ -180,24 +180,23 @@ export class ChannelAction {
           {showContainer && (
             <div class="suggestion-container">
               {this.fetchingChannels && <bearer-loading />}
-              {!this.fetchingChannels &&
-                hasSuggestions && (
-                  <ul>
-                    {this.suggestions.map((c, index) => (
-                      <li
-                        class={this.selected === index ? 'selected' : ''}
-                        onClick={() => {
-                          this.attachChannel(c)
-                        }}
-                        onMouseEnter={this.onFocus(index)}
-                      >
-                        {c.is_private ? <channel-lock /> : '#'}
-                        {c.name}
-                        <button onFocus={this.onFocus(index)}>Select</button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              {!this.fetchingChannels && hasSuggestions && (
+                <ul>
+                  {this.suggestions.map((c, index) => (
+                    <li
+                      class={this.selected === index ? 'selected' : ''}
+                      onClick={() => {
+                        this.attachChannel(c)
+                      }}
+                      onMouseEnter={this.onFocus(index)}
+                    >
+                      {c.is_private ? <channel-lock /> : '#'}
+                      {c.name}
+                      <button onFocus={this.onFocus(index)}>Select</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>
