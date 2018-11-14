@@ -1,7 +1,0 @@
-.bearer
-node_modules/
-dist/
-www/
-.build/
-config.dev.js
-.scenariorc
