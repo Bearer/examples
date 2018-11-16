@@ -8,10 +8,11 @@ export default class SavePullRequestIntent {
   static action(
     _context: Toauth2Context,
     _params: any,
-    body: { pullRequests: Array<PullRequest> }, // We define the structure of the body we are going to receive
+    { pullRequests }: { pullRequests: Array<PullRequest> }, // We define the structure of the body we are going to receive
     state: any,
     callback: TSaveStateCallback
   ) {
+    const newPullRequest = pullRequests[pullRequests.length - 1]
     callback({
       state: {
         ...state,
@@ -19,8 +20,8 @@ export default class SavePullRequestIntent {
         pullRequests: [
           ...(state.pullRequests || []),
           {
-            number: body.pullRequests[0].number,
-            fullName: body.pullRequests[0].base.repo.full_name
+            number: newPullRequest.number,
+            fullName: newPullRequest.base.repo.full_name
           }
         ]
       }

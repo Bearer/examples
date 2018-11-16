@@ -52,7 +52,7 @@
           </div>
           <div class="card">
             <div class="card-body">
-              <feature-display setup-id="CHANGE_ME" pull-requests-ref-id="b6770830-e8bc-11e8-b07f-6dd015578662">
+              <feature-display setup-id="CHANGE_ME">
               </feature-display>
             </div>
           </div>
@@ -61,16 +61,15 @@
     </div>
 
     <script>
-  document.querySelector('feature-action').addEventListener('bearer:StateSaved', (e) => {
+  document.querySelector('feature-action').addEventListener('bearer|b26216-github-attach-pullrequest|feature|pullRequestsSaved', (e) => {
     console.log('[BEARER]', 'StateSaved', e.detail)
     localStorage.setItem('saved-reference-id', e.detail.referenceId)
-    document.querySelector('feature-display').setAttribute('reference-id', e.detail.referenceId)
   })
   setTimeout(() => {
     const ref = localStorage.getItem('saved-reference-id')
     if (ref) {
-      document.querySelector('feature-display').setAttribute('reference-id', ref)
-      document.querySelector('feature-action').setAttribute('reference-id', ref)
+      document.querySelector('feature-display').setAttribute('pull-requests-ref-id', ref)
+      // document.querySelector('feature-action').setAttribute('reference-id', ref)
     }
   }, 100)
 </script>

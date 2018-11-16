@@ -15,13 +15,8 @@ export default class RetrievePullRequests {
 
     // Loop over the PullRequests stored in the SaveState intent
     // Then query the GitHub API
-    Promise.all(
-      (state.pullRequests || [])
-      .map(pullRequestFetcher)
-    )
-    .then(pullRequests => {
-    	callback({ data: pullRequests })
+    Promise.all((state.pullRequests || []).map(pullRequestFetcher)).then(pullRequests => {
+      callback({ data: pullRequests })
     })
   }
-
 }

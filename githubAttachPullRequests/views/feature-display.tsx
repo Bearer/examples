@@ -8,10 +8,13 @@ import { PullRequest } from './types'
   group: 'feature'
 })
 export class FeatureDisplay {
-  @Input() pullRequests: Array<PullRequest> = []
+  @Input({
+    intentName: 'retrievePullRequests'
+  })
+  pullRequests: Array<PullRequest> = []
 
   render() {
-    const hasPrs = this.pullRequests.length
+    const hasPrs = !!this.pullRequests.length
 
     return (
       // Add the referenceId

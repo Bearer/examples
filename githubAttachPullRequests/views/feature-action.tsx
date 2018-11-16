@@ -9,8 +9,6 @@ import { PullRequest } from './types'
 })
 export class FeatureAction {
   @Output() pullRequests: BearerRef<Array<PullRequest>> = []
-  // Connect savePullRequest Intent
-  // @BearerState() attachedPullRequests: Array<any> = []
 
   attachPullRequest = ({ data, complete }): void => {
     // Use the savePullRequest intent to store the current state
