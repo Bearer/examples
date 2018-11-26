@@ -15,25 +15,27 @@ import { PullRequest } from './types'
 export class FeatureAction {
   @Output() pullRequests: BearerRef<PullRequest[]> = []
 
-  save = () => {
-    const count = this.pullRequests.length
-    this.pullRequests = [
-      ...this.pullRequests,
-      {
-        id: count + '',
-        number: count + '',
-        title: `PR: ${this.pullRequests.length}`,
-        base: { repo: { full_name: 'node' } }
-      }
-    ]
+  attachPullRequest = ({ data, complete }): void => {
+    // Use the savePullRequest intent to store the current state
+    this.pullRequests = [...this.pullRequests, data.pullRequest]
+    complete()
   }
   render() {
     return (
-      <bearer-navigator btnProps={{ content: 'Feature Action', kind: 'primary' }} direction="right">
+      <bearer-navigator
+        btnProps={{ content: 'Feature Action', kind: 'primary' }}
+        direction="right"
+        complete={this.attachPullRequest}
+      >
         <bearer-navigator-auth-screen />
-        <bearer-navigator-screen navigationTitle="My first screen">
-          <button onClick={this.save} />
+        <bearer-navigator-screen navigationTitle="Repositories" name="repository">
+          <repository-list />
         </bearer-navigator-screen>
+        <bearer-navigator-screen
+          renderFunc={({ data }) => <pull-request-list {...data} />}
+          name="pullRequest"
+          navigationTitle={data => data.repository.full_name}
+        />
       </bearer-navigator>
     )
   }
