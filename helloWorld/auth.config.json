@@ -1,11 +1,12 @@
 {
-  "authorizationURL": "https://example.com/authorizationUrl",
-  "tokenURL": "https://example.com/tokenUrl",
-  "authType": "oauth2",
+  "authorizationURL": "https://github.com/login/oauth/authorize",
+  "tokenURL": "https://github.com/login/oauth/access_token",
+  "authType": "OAUTH2",
   "tokenParams": {},
   "authorizationParams": {},
   "config": {
-    "scope": []
+    "accessType": "offline",
+    "scope": ["repo"]
   },
   "setupViews": [
     {
