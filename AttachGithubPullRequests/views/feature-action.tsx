@@ -3,7 +3,7 @@
 
 */
 
-import { RootComponent, Output, BearerRef } from '@bearer/core'
+import { RootComponent, Output } from '@bearer/core'
 import '@bearer/ui'
 
 import { PullRequest } from './types'
@@ -13,13 +13,13 @@ import { PullRequest } from './types'
   group: 'feature'
 })
 export class FeatureAction {
-  @Output() pullRequests: BearerRef<PullRequest[]> = []
-
+  @Output() pullRequests: PullRequest[] = []
   attachPullRequest = ({ data, complete }): void => {
     // Use the savePullRequest intent to store the current state
     this.pullRequests = [...this.pullRequests, data.pullRequest]
     complete()
   }
+
   render() {
     return (
       <bearer-navigator

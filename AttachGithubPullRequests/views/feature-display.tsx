@@ -3,7 +3,7 @@
   Its responsibility is to retrieve the scenario state from a previous action
   of a user.
 */
-import { RootComponent, Input, BearerRef } from '@bearer/core'
+import { RootComponent, Input } from '@bearer/core'
 import '@bearer/ui'
 
 import { PullRequest } from './types'
@@ -13,7 +13,7 @@ import { PullRequest } from './types'
   group: 'feature'
 })
 export class FeatureDisplay {
-  @Input() pullRequests: BearerRef<PullRequest[]> = []
+  @Input() pullRequests: PullRequest[] = []
 
   render() {
     if (!this.pullRequests.length) {
