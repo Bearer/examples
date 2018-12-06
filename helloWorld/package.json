@@ -1,7 +1,7 @@
 {
-  "name": "attach-github-pull-requests",
+  "name": "hello-world",
   "version": "0.0.1",
-  "description": "AttachGithubPullRequests",
+  "description": "HelloWorld",
   "main": "dist/index.js",
   "types": "dist/types/components.d.ts",
   "module": "dist/esm/index.js",
@@ -15,15 +15,15 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@bearer/core": "next",
-    "@bearer/intents": "next",
-    "@bearer/ui": "^0.74.3",
+    "@bearer/core": "beta2",
+    "@bearer/intents": "beta2",
+    "@bearer/ui": "beta2",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/cli": "^0.74.2",
+    "@bearer/cli": "beta2",
     "@types/jest": "latest",
-    "@types/node": "^10.12.12",
+    "@types/node": "latest",
     "jest": "latest"
   },
   "license": "MIT",

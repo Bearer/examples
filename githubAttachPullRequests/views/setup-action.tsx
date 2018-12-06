@@ -11,15 +11,14 @@ import '@bearer/ui'
   role: 'action'
 })
 export class SetupAction {
-  @Prop() onSetupSuccess: (detail: any) => void = (_any: any) => { }
-  @State() fields = [{ "type": "text", "label": "Client ID", "controlName": "clientID" }, { "type": "password", "label": "Client Secret", "controlName": "clientSecret" }]
+  @Prop() onSetupSuccess: (detail: any) => void = (_any: any) => {}
+  @State() fields = [{"type":"text","label":"Client ID","controlName":"clientID"},{"type":"password","label":"Client Secret","controlName":"clientSecret"}]
   @State() innerListener = `setup_success:BEARER_SCENARIO_ID`
   render() {
     return (
-      <bearer-dropdown-button innerListener={this.innerListener} btnProps={{ content: "Setup component" }}>
+      <bearer-dropdown-button innerListener={this.innerListener} btnProps={ { content: "Setup component" } }>
         <bearer-setup onSetupSuccess={this.onSetupSuccess} scenarioId="BEARER_SCENARIO_ID" fields={this.fields} />
       </bearer-dropdown-button>
     )
   }
 }
-

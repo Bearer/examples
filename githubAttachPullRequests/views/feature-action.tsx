@@ -1,31 +1,30 @@
-import { RootComponent, Intent, BearerState, IntentType } from '@bearer/core'
+/*
+  The purpose of this component is to deal with scenario navigation between each views.
+
+*/
+
+import { RootComponent, Output } from '@bearer/core'
 import '@bearer/ui'
+
+import { PullRequest } from './types'
 
 @RootComponent({
   role: 'action',
   group: 'feature'
 })
 export class FeatureAction {
-  // Connect savePullRequest Intent
-  @Intent('savePullRequest', IntentType.SaveState) savePullRequest: any
-  @BearerState() attachedPullRequests: Array<any> = []
+  @Output() pullRequests: PullRequest[] = []
 
   attachPullRequest = ({ data, complete }): void => {
     // Use the savePullRequest intent to store the current state
-    this.savePullRequest({ body: data })
-      .then(() => {
-        this.attachedPullRequests = [...this.attachedPullRequests, data.pullRequest]
-        complete()
-      })
-      .catch(error => {
-        throw error
-      })
+    this.pullRequests = [...this.pullRequests, data.pullRequest]
+    complete()
   }
 
   render() {
     return (
       <bearer-navigator
-        btnProps={{ content: 'Attach Pull Request', kind: 'primary' }}
+        btnProps={{ content: 'Feature Action', kind: 'primary' }}
         direction="right"
         complete={this.attachPullRequest}
       >
@@ -34,6 +33,7 @@ export class FeatureAction {
           <list-repositories />
         </bearer-navigator-screen>
         <bearer-navigator-screen
+          // data will be passed to list-pull-requests as 'this' keyword
           renderFunc={({ data }) => <list-pull-requests {...data} />}
           name="pullRequest"
           navigationTitle={data => data.repository.full_name}

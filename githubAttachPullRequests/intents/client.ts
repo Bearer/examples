@@ -2,9 +2,9 @@ import axios from 'axios'
 
 export default function(token: string) {
   const headers = {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'User-Agent': 'Bearer',
-    'Authorization': `token ${token}`
+    Authorization: `token ${token}`
   }
 
   return axios.create({

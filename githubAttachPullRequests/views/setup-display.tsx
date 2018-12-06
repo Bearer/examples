@@ -2,11 +2,11 @@
   The purpose of this component is to save scenario credentials.
 */
 
-import { RootComponent, Prop } from "@bearer/core";
+import { RootComponent } from "@bearer/core";
 import "@bearer/ui";
 
 @RootComponent({
-  group: 'setup',
+  group: "setup",
   role: 'display'
 })
 export class SetupDisplay {

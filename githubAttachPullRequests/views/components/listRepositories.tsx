@@ -1,4 +1,4 @@
-import { Component, Intent, BearerFetch } from '@bearer/core'
+import { BearerFetch, Component, Intent } from '@bearer/core'
 
 @Component({
   tag: 'list-repositories',
