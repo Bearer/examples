@@ -28,6 +28,7 @@ export class FeatureAction {
         direction="right"
         complete={this.attachPullRequest}
       >
+        <bearer-navigator-auth-screen />
         <bearer-navigator-screen navigationTitle="Repositories" name="repository">
           <list-repositories />
         </bearer-navigator-screen>

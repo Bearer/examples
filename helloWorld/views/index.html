@@ -61,7 +61,7 @@
     </div>
 
     <script>
-      document.querySelector('feature-action').addEventListener('bearer|unset-scenari0-uuid|feature|pullRequestsSaved', (e) => {
+      document.querySelector('feature-action').addEventListener('bearer|6d29c4-hello-world|feature|pullRequestsSaved', (e) => {
         console.log('[BEARER]', 'StateSaved', e.detail)
         localStorage.setItem('saved-reference-id', e.detail.referenceId)
         document.querySelector('feature-display').setAttribute('reference-id', e.detail.referenceId)

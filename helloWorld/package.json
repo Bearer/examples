@@ -17,13 +17,13 @@
   "dependencies": {
     "@bearer/core": "next",
     "@bearer/intents": "next",
-    "@bearer/ui": "next",
+    "@bearer/ui": "^0.74.3",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "@bearer/cli": "next",
+    "@bearer/cli": "^0.74.2",
     "@types/jest": "latest",
-    "@types/node": "latest",
+    "@types/node": "^10.12.12",
     "jest": "latest"
   },
   "license": "MIT",
