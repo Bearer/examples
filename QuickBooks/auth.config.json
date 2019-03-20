@@ -1,0 +1,28 @@
+{
+  "authorizationURL": "https://appcenter.intuit.com/connect/oauth2",
+  "tokenURL": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+  "authType": "OAUTH2",
+  "tokenParams": {
+    "redirect_uri": "{{CALLBACK_URL_V2}}"
+  },
+  "authorizationParams": {
+    "redirect_uri": "{{CALLBACK_URL_V2}}"
+  },
+  "config": {
+    "scope": ["com.intuit.quickbooks.payment", "com.intuit.quickbooks.accounting", "openid"],
+    "callbackURL": "{{CALLBACK_URL_V2}}",
+    "state": "bearerState"
+  },
+  "setupViews": [
+    {
+      "type": "text",
+      "label": "Client ID",
+      "controlName": "clientID"
+    },
+    {
+      "type": "password",
+      "label": "Client Secret",
+      "controlName": "clientSecret"
+    }
+  ]
+}

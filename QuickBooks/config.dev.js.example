@@ -1,0 +1,9 @@
+module.exports = {
+  global: { authAccess: { accessToken: 'CHANGE_ME'
+      refreshToken: 'CHANGE_ME',
+      clientId: 'CHANGE_ME',
+      clientSecret: 'CHANGE_ME',
+      tokenUrl: 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer'
+    }
+ }
+}
